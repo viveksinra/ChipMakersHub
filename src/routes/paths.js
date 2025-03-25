@@ -9,8 +9,8 @@ const ROOTS = {
 
 export const paths = {
   faqs: '/faqs',
-  about: '/about',
-  contact: '/contact',
+  about: '/about-us',
+  contact: '/contact-us',
   docs: '/docs',
   minimalStore: 'https://mui.com/store/items/minimal-dashboard/',
   // ChipMakersHub Routes
