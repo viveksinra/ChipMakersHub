@@ -12,12 +12,13 @@ import { ProgressBar } from 'src/components/progress-bar';
 import { MotionLazy } from 'src/components/animate/motion-lazy';
 import { SettingsDrawer, defaultSettings, SettingsProvider } from 'src/components/settings';
 
-// import { AuthProvider as JwtAuthProvider } from 'src/auth/context/jwt';
+import { AuthProvider as JwtAuthProvider } from 'src/auth/context/jwt';
 // import { AuthProvider as Auth0AuthProvider } from 'src/auth/context/auth0';
 
 // ----------------------------------------------------------------------
 
 // const AuthProvider = CONFIG.auth.method === 'auth0' ? Auth0AuthProvider : JwtAuthProvider;
+const AuthProvider =  JwtAuthProvider;
 
 // ----------------------------------------------------------------------
 
@@ -50,7 +51,7 @@ export default function RootLayout({ children }) {
           attribute={themeConfig.cssVariables.colorSchemeSelector}
         />
 
-        {/* <AuthProvider> */}
+        <AuthProvider>
           <SettingsProvider defaultSettings={defaultSettings}>
             <AppRouterCacheProvider options={{ key: 'css' }}>
               <ThemeProvider
@@ -66,7 +67,7 @@ export default function RootLayout({ children }) {
               </ThemeProvider>
             </AppRouterCacheProvider>
           </SettingsProvider>
-        {/* </AuthProvider> */}
+        </AuthProvider>
       </body>
     </html>
   );
