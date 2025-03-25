@@ -4,7 +4,8 @@ import Popover, { popoverClasses } from '@mui/material/Popover';
 // ----------------------------------------------------------------------
 
 export const NavDropdownPaper = styled('div')(({ theme }) => ({
-  minWidth: 180,
+  width: 'auto',
+  maxWidth: 220,
   ...theme.mixins.paperStyles(theme, { dropdown: true }),
 }));
 
@@ -13,7 +14,7 @@ export const NavDropdownPaper = styled('div')(({ theme }) => ({
 export const NavDropdown = styled(Popover)(({ open, theme }) => ({
   pointerEvents: 'none',
   [`& .${popoverClasses.paper}`]: {
-    boxShadow: 'none',
+    boxShadow: '0 8px 16px 0 rgba(0, 0, 0, 0.16)',
     overflow: 'unset',
     backdropFilter: 'none',
     background: 'transparent',

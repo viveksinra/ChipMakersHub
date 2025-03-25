@@ -13,6 +13,14 @@ export const paths = {
   contact: '/contact',
   docs: '/docs',
   minimalStore: 'https://mui.com/store/items/minimal-dashboard/',
+  // ChipMakersHub Routes
+  forFreelancers: '/for-freelancers',
+  forCompanies: '/for-companies',
+  services: '/services',
+  whyChooseUs: '/why-choose-us',
+  joinTheHub: '/join-the-hub',
+  privacyPolicy: '/privacy-policy',
+  termsConditions: '/terms-conditions',
   // AUTH
   auth: {
     amplify: {

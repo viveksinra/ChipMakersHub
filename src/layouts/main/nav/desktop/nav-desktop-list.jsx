@@ -1,6 +1,9 @@
 import { useBoolean } from 'minimal-shared/hooks';
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback, useState } from 'react';
 import { isEqualPath, isActiveLink, isExternalLink } from 'minimal-shared/utils';
+
+import Popover from '@mui/material/Popover';
+import { useTheme } from '@mui/material/styles';
 
 import { usePathname } from 'src/routes/hooks';
 
@@ -13,6 +16,9 @@ import { NavItemDashboard } from './nav-desktop-item-dashboard';
 export function NavList({ data, sx, ...other }) {
   const pathname = usePathname();
   const navItemRef = useRef(null);
+  const theme = useTheme();
+  const isRtl = theme.direction === 'rtl';
+  const [hoverTimer, setHoverTimer] = useState(null);
 
   const isActive = isActiveLink(pathname, data.path, !!data.children);
   const { value: open, onFalse: onClose, onTrue: onOpen } = useBoolean();
@@ -21,14 +27,27 @@ export function NavList({ data, sx, ...other }) {
     if (open) {
       onClose();
     }
+    return () => {
+      if (hoverTimer) clearTimeout(hoverTimer);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   const handleOpenMenu = useCallback(() => {
     if (data.children) {
-      onOpen();
+      if (hoverTimer) clearTimeout(hoverTimer);
+      setHoverTimer(setTimeout(() => {
+        onOpen();
+      }, 100));
     }
-  }, [data.children, onOpen]);
+  }, [data.children, onOpen, hoverTimer]);
+
+  const handleCloseMenu = useCallback(() => {
+    if (hoverTimer) clearTimeout(hoverTimer);
+    setHoverTimer(setTimeout(() => {
+      onClose();
+    }, 100));
+  }, [onClose, hoverTimer]);
 
   const renderNavItem = () => (
     <NavItem
@@ -44,13 +63,38 @@ export function NavList({ data, sx, ...other }) {
       externalLink={isExternalLink(data.path)}
       // action
       onMouseEnter={handleOpenMenu}
-      onMouseLeave={onClose}
+      onMouseLeave={handleCloseMenu}
     />
   );
 
   const renderDropdown = () =>
     !!data.children && (
-      <NavDropdown open={open} onMouseEnter={handleOpenMenu} onMouseLeave={onClose}>
+      <Popover
+        open={open}
+        anchorEl={navItemRef.current}
+        onClose={onClose}
+        disableScrollLock
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+        PaperProps={{
+          onMouseEnter: () => {
+            if (hoverTimer) clearTimeout(hoverTimer);
+          },
+          onMouseLeave: handleCloseMenu,
+          sx: { 
+            width: 'auto', 
+            mt: 0.5, 
+            boxShadow: '0 8px 16px 0 rgba(0, 0, 0, 0.16)'
+          }
+        }}
+        sx={{ pointerEvents: 'none', '& .MuiPaper-root': { pointerEvents: 'auto' } }}
+      >
         <Nav>
           <NavUl sx={{ gap: 3, flexDirection: 'row' }}>
             {data.children.map((list) => (
@@ -58,11 +102,11 @@ export function NavList({ data, sx, ...other }) {
             ))}
           </NavUl>
         </Nav>
-      </NavDropdown>
+      </Popover>
     );
 
   return (
-    <NavLi sx={sx} {...other}>
+    <NavLi sx={{ position: 'relative', ...sx }} {...other}>
       {renderNavItem()}
       {renderDropdown()}
     </NavLi>
