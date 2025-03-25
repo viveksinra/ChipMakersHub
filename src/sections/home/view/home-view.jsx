@@ -10,15 +10,14 @@ import { ScrollProgress, useScrollProgress } from 'src/components/animate/scroll
 
 import { HomeHero } from '../home-hero';
 import { HomeFAQs } from '../home-faqs';
-import { HomeZoneUI } from '../home-zone-ui';
-import { HomeMinimal } from '../home-minimal';
-import { HomePricing } from '../home-pricing';
-import { HomeForDesigner } from '../home-for-designer';
+import { HomeAboutUs } from '../home-about-us';
+import { HomeForFreelancers } from '../home-for-freelancers';
+import { HomeForCompanies } from '../home-for-companies';
+import { HomeServices } from '../home-services';
+import { HomeWhyChooseUs } from '../home-why-choose-us';
+import { HomeJoinHub } from '../home-join-hub';
 import { HomeTestimonials } from '../home-testimonials';
-import { HomeIntegrations } from '../home-integrations';
-import { HomeAdvertisement } from '../home-advertisement';
-import { HomeHugePackElements } from '../home-hugepack-elements';
-import { HomeHighlightFeatures } from '../home-highlight-features';
+import { HomeContact } from '../home-contact';
 
 // ----------------------------------------------------------------------
 
@@ -40,25 +39,23 @@ export function HomeView() {
       <HomeHero />
 
       <Stack sx={{ position: 'relative', bgcolor: 'background.default' }}>
-        <HomeMinimal />
+        <HomeAboutUs />
 
-        <HomeHugePackElements />
+        <HomeForFreelancers />
 
-        <HomeForDesigner />
+        <HomeForCompanies />
 
-        <HomeHighlightFeatures />
+        <HomeServices />
 
-        <HomeIntegrations />
-
-        <HomePricing />
-
+        <HomeWhyChooseUs />
+        
         <HomeTestimonials />
+
+        <HomeJoinHub />
 
         <HomeFAQs />
 
-        <HomeZoneUI />
-
-        <HomeAdvertisement />
+        <HomeContact />
       </Stack>
     </>
   );

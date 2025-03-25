@@ -3,9 +3,9 @@ import { HomeView } from 'src/sections/home/view';
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'Minimals UI: The starting point for your next project',
+  title: 'Chip Makers Hub: Where the world connects for VLSI work',
   description:
-    'The starting point for your next project with Minimal UI Kit, built on the newest version of Material-UI ©, ready to be customized to your style',
+    'The premier freelancing platform for the semiconductor industry, connecting companies with skilled VLSI professionals specializing in RTL design, verification, ASIC, FPGA, and more.',
 };
 
 export default function Page() {

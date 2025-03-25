@@ -75,9 +75,9 @@ export function HomeHero({ sx, ...other }) {
         ]}
       >
         <Box component="span" sx={{ width: 1, opacity: 0.24 }}>
-          Boost your building
+          Where the world connects
         </Box>
-        process with
+        for 
         <Box
           component={m.span}
           animate={{ backgroundPosition: '200% center' }}
@@ -95,7 +95,7 @@ export function HomeHero({ sx, ...other }) {
             ml: { xs: 0.75, md: 1, xl: 1.5 },
           }}
         >
-          Minimal
+          VLSI work
         </Box>
       </Box>
     </m.div>
@@ -111,7 +111,7 @@ export function HomeHero({ sx, ...other }) {
           [theme.breakpoints.up(lgKey)]: { fontSize: 20, lineHeight: '36px' },
         }}
       >
-        {`The starting point for your next project is based on MUI. \nEasy customization helps you build apps faster and better.`}
+        {`Welcome to Chip Makers Hub, your one-stop VLSI freelancing platform. \nWe connect companies with skilled semiconductor professionals specializing in RTL design, verification, DFT, physical design, and more.`}
       </Typography>
     </m.div>
   );
@@ -137,7 +137,7 @@ export function HomeHero({ sx, ...other }) {
             />
           ))}
         </AvatarGroup>
-        160+ Happy customers
+        Join the global VLSI community
       </Box>
     </m.div>
   );
@@ -162,34 +162,9 @@ export function HomeHero({ sx, ...other }) {
             startIcon={<Iconify width={24} icon="iconoir:flash" />}
           >
             <span>
-              Live preview
-              <Box
-                component="small"
-                sx={{
-                  mt: '-3px',
-                  opacity: 0.64,
-                  display: 'flex',
-                  fontSize: theme.typography.pxToRem(10),
-                  fontWeight: theme.typography.fontWeightMedium,
-                }}
-              >
-                v{CONFIG.appVersion}
-              </Box>
+              Sign Up as a Freelancer
             </span>
           </Button>
-
-          <Link
-            color="inherit"
-            variant="body2"
-            target="_blank"
-            rel="noopener"
-            href={paths.freeUI}
-            underline="always"
-            sx={{ gap: 0.75, alignItems: 'center', display: 'inline-flex' }}
-          >
-            <Iconify width={16} icon="eva:external-link-fill" />
-            Get free version
-          </Link>
         </Stack>
       </m.div>
 
@@ -198,13 +173,11 @@ export function HomeHero({ sx, ...other }) {
           color="inherit"
           size="large"
           variant="outlined"
-          target="_blank"
-          rel="noopener"
-          href={paths.figmaUrl}
-          startIcon={<Iconify width={24} icon="solar:figma-outline" />}
-          sx={{ borderColor: 'text.primary' }}
+          startIcon={<Iconify width={24} icon="carbon:launch" />}
+          component={RouterLink}
+          href={paths.dashboard.root}
         >
-          Figma preview
+          Hire a Freelancer
         </Button>
       </m.div>
     </Box>
