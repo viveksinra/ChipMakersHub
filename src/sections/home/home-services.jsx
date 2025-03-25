@@ -9,6 +9,11 @@ import { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import { m } from 'framer-motion';
 
 import { Iconify } from 'src/components/iconify';
 import { varFade, MotionViewport } from 'src/components/animate';
@@ -105,6 +110,10 @@ export function HomeServices() {
     setCurrentTab(newValue);
   };
 
+  const handleChangeSelect = (event) => {
+    setCurrentTab(event.target.value);
+  };
+
   return (
     <Box
       sx={{
@@ -118,68 +127,152 @@ export function HomeServices() {
             textAlign: 'center',
           }}
         >
-          <Typography
-            variant="h2"
-            sx={{ mb: 3 }}
-          >
-            Our Services
-          </Typography>
+          <m.div variants={varFade('inUp')}>
+            <Typography
+              variant="h2"
+              sx={{ mb: 3 }}
+            >
+              Our Services
+            </Typography>
+          </m.div>
 
-          <Typography
-            sx={{
-              mx: 'auto',
-              maxWidth: 800,
-              color: 'text.secondary',
-            }}
-          >
-            Chip Makers Hub outlines a comprehensive suite of services, categorized into the following key areas
-          </Typography>
+          <m.div variants={varFade('inUp')}>
+            <Typography
+              sx={{
+                mx: 'auto',
+                maxWidth: 800,
+                color: 'text.secondary',
+              }}
+            >
+              Chip Makers Hub outlines a comprehensive suite of services, categorized into the following key areas
+            </Typography>
+          </m.div>
         </Box>
 
-        <Tabs
-          value={currentTab}
-          onChange={handleChangeTab}
-          sx={{
-            mb: 5,
-            display: 'flex',
-            maxWidth: '100%',
-            flexDirection: { xs: 'column', md: 'row' },
-            '& .MuiTabs-flexContainer': {
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-            },
+        {/* Desktop Tabs */}
+        <Box 
+          sx={{ 
+            display: { xs: 'none', md: 'block' },
+            mb: 5 
           }}
         >
-          {SERVICES.map((tab, index) => (
-            <Tab
-              key={tab.category}
-              value={index}
-              label={tab.category}
+          <m.div variants={varFade('inUp')}>
+            <Tabs
+              value={currentTab}
+              onChange={handleChangeTab}
+              variant="scrollable"
+              scrollButtons="auto"
+              allowScrollButtonsMobile
               sx={{
-                minWidth: 120,
-                '&.Mui-selected': {
-                  fontWeight: 'fontWeightSemiBold',
-                  color: 'primary.main',
+                mb: 5,
+                '& .MuiTabs-flexContainer': {
+                  justifyContent: 'center',
+                },
+                '& .MuiTabs-indicator': {
+                  backgroundColor: 'primary.main',
+                },
+                '& .MuiTab-root': {
+                  minWidth: 150,
+                  maxWidth: 200,
+                  px: 2,
+                  py: 1.5,
+                  fontWeight: 'medium',
+                  textAlign: 'center',
+                  whiteSpace: 'normal',
+                  lineHeight: 1.2,
+                  '&.Mui-selected': {
+                    fontWeight: 'bold',
+                    color: 'primary.main',
+                  },
                 },
               }}
-            />
-          ))}
-        </Tabs>
+            >
+              {SERVICES.map((tab, index) => (
+                <Tab 
+                  key={tab.category} 
+                  value={index} 
+                  label={tab.category} 
+                />
+              ))}
+            </Tabs>
+          </m.div>
+        </Box>
 
+        {/* Mobile Select */}
+        <Box 
+          sx={{ 
+            display: { xs: 'block', md: 'none' },
+            mb: 5
+          }}
+        >
+          <m.div variants={varFade('inUp')}>
+            <FormControl fullWidth>
+              <InputLabel>Select Service Category</InputLabel>
+              <Select
+                value={currentTab}
+                label="Select Service Category"
+                onChange={handleChangeSelect}
+                sx={{
+                  mb: 3,
+                  '& .MuiSelect-select': {
+                    py: 1.5,
+                  },
+                  '& .MuiMenuItem-root': {
+                    py: 1.5,
+                    whiteSpace: 'normal',
+                    lineHeight: 1.2,
+                  }
+                }}
+              >
+                {SERVICES.map((tab, index) => (
+                  <MenuItem 
+                    key={tab.category} 
+                    value={index}
+                    sx={{ 
+                      whiteSpace: 'normal', 
+                      lineHeight: 1.2, 
+                      py: 1.5,
+                      minHeight: 'auto'
+                    }}
+                  >
+                    {tab.category}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </m.div>
+        </Box>
+
+        {/* Service Items */}
         {SERVICES.map((tab, index) => (
           <Box
             key={tab.category}
+            component={m.div}
+            animate={{
+              opacity: currentTab === index ? 1 : 0,
+              y: currentTab === index ? 0 : 20,
+              height: currentTab === index ? 'auto' : 0,
+              transition: {
+                duration: 0.5,
+                ease: "easeInOut"
+              }
+            }}
             sx={{
+              overflow: 'hidden',
               display: currentTab === index ? 'block' : 'none',
             }}
           >
-            <Grid container spacing={4}>
-              {tab.items.map((item) => (
-                <Grid key={item.title} item xs={12} sm={6} md={4}>
-                  <ServiceCard item={item} />
-                </Grid>
-              ))}
-            </Grid>
+            <m.div variants={varFade('inUp')}>
+              <Grid container spacing={4}>
+                {tab.items.map((item) => (
+                  <Grid key={item.title} item xs={12} sm={6} md={4}>
+                    <m.div variants={varFade('inUp')}>
+                      <ServiceCard item={item} />
+                    </m.div>
+                  </Grid>
+                ))}
+              </Grid>
+            </m.div>
           </Box>
         ))}
       </Container>
@@ -194,12 +287,17 @@ function ServiceCard({ item }) {
   
   return (
     <Card
+      component={m.div}
+      whileHover={{ 
+        scale: 1.02,
+        transition: { duration: 0.2 } 
+      }}
       sx={{
         boxShadow: (theme) => theme.customShadows.z8,
         height: '100%',
+        transition: theme.transitions.create(['box-shadow', 'transform']),
         '&:hover': {
           boxShadow: (theme) => theme.customShadows.z24,
-          transition: theme.transitions.create('box-shadow'),
         },
       }}
     >
