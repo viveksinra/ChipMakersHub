@@ -2,12 +2,16 @@
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
 
-import { _mapContact } from 'src/_mock';
+import { Iconify } from 'src/components/iconify';
 
-import { ContactMap } from '../contact-map';
 import { ContactHero } from '../contact-hero';
 import { ContactForm } from '../contact-form';
+import { ContactInfo } from '../contact-info';
 
 // ----------------------------------------------------------------------
 
@@ -16,17 +20,15 @@ export function ContactView() {
     <>
       <ContactHero />
       <Container component="section" sx={{ py: 10 }}>
-        <Box
-          sx={{
-            gap: 10,
-            display: 'grid',
-            gridTemplateColumns: { xs: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' },
-          }}
-        >
-          <ContactForm />
-
-          <ContactMap contacts={_mapContact} />
-        </Box>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={6}>
+            <ContactForm />
+          </Grid>
+          
+          <Grid item xs={12} md={6}>
+            <ContactInfo />
+          </Grid>
+        </Grid>
       </Container>
     </>
   );

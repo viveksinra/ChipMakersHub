@@ -24,7 +24,7 @@ export function ContactHero({ sx, ...other }) {
             ],
           }),
           overflow: 'hidden',
-          height: { md: 560 },
+          height: { md: 480 },
           position: 'relative',
           py: { xs: 10, md: 0 },
         }),
@@ -43,7 +43,7 @@ export function ContactHero({ sx, ...other }) {
           <AnimateText
             component="h1"
             variant="h1"
-            textContent={['Where', 'to find us?']}
+            textContent={['Get in Touch', 'with ChipMakersHub']}
             variants={varFade('inUp', { distance: 24 })}
             sx={{
               color: 'common.white',
@@ -53,33 +53,19 @@ export function ContactHero({ sx, ...other }) {
             }}
           />
 
-          <Box
-            component="ul"
-            sx={{
-              mt: 5,
-              display: 'grid',
-              color: 'common.white',
-              rowGap: { xs: 5, md: 0 },
-              columnGap: { xs: 2, md: 5 },
-              gridTemplateColumns: { xs: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' },
-            }}
-          >
-            {CONTACTS.map((contact) => (
-              <li key={contact.country}>
-                <m.div variants={varFade('inUp', { distance: 24 })}>
-                  <Typography variant="h6" sx={{ mb: 1 }}>
-                    {contact.country}
-                  </Typography>
-                </m.div>
-
-                <m.div variants={varFade('inUp', { distance: 24 })}>
-                  <Typography variant="body2" sx={{ opacity: 0.8 }}>
-                    {contact.address}
-                  </Typography>
-                </m.div>
-              </li>
-            ))}
-          </Box>
+          <m.div variants={varFade('inUp', { distance: 24 })}>
+            <Typography
+              variant="h5"
+              sx={{
+                mt: 3,
+                color: 'common.white',
+                fontWeight: 'normal',
+                opacity: 0.8,
+              }}
+            >
+              We're here to help you navigate the world of VLSI freelancing
+            </Typography>
+          </m.div>
         </Box>
       </Container>
     </Box>
