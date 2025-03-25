@@ -76,7 +76,7 @@ export function NavMobile({ data, open, onClose, slots, sx }) {
             display: 'flex',
           }}
         >
-          <SignInButton fullWidth />
+          {/* <SignInButton fullWidth /> */}
 
           <Button
             fullWidth
@@ -85,7 +85,16 @@ export function NavMobile({ data, open, onClose, slots, sx }) {
             target="_blank"
             href={paths.minimalStore}
           >
-            Purchase
+            Company
+          </Button>
+          <Button
+            fullWidth
+            variant="contained"
+            rel="noopener"
+            target="_blank"
+            href={paths.minimalStore}
+          >
+            Developers
           </Button>
         </Box>
       )}
