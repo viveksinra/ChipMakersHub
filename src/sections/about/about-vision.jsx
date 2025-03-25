@@ -47,7 +47,7 @@ export function AboutVision({ sx, ...other }) {
         }),
       ]}
     >
-      {['ibm', 'lya', 'spotify', 'netflix', 'hbo', 'amazon'].map((logo) => (
+      {['intel', 'amd', 'nvidia', 'tsmc', 'arm', 'qualcomm'].map((logo) => (
         <Box
           component={m.img}
           key={logo}
@@ -60,12 +60,54 @@ export function AboutVision({ sx, ...other }) {
     </Box>
   );
 
+  const renderServices = () => (
+    <Box sx={{ mt: 8, textAlign: 'center' }}>
+      <m.div variants={varFade('inUp')}>
+        <Typography variant="h4" sx={{ mb: 3 }}>
+          Why Choose Us?
+        </Typography>
+      </m.div>
+
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 4, mt: 4 }}>
+        {SERVICES.map((service) => (
+          <Box
+            key={service.title}
+            component={m.div}
+            variants={varFade('inUp')}
+            sx={{
+              px: 3,
+              py: 5,
+              width: { xs: '100%', sm: '45%', md: '22%' },
+              borderRadius: 2,
+              bgcolor: 'background.paper',
+              boxShadow: (theme) => theme.customShadows.z8,
+              textAlign: 'center',
+              transition: 'all 0.3s',
+              '&:hover': {
+                transform: 'translateY(-8px)',
+                boxShadow: (theme) => theme.customShadows.z24,
+              },
+            }}
+          >
+            <Iconify icon={service.icon} width={48} height={48} sx={{ mb: 2, color: 'primary.main' }} />
+            <Typography variant="h6" sx={{ mb: 2 }}>
+              {service.title}
+            </Typography>
+            <Typography variant="body2" sx={{ color: 'text.secondary', height: 80, overflow: 'hidden' }}>
+              {service.description}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
+    </Box>
+  );
+
   return (
     <Box
       component="section"
       sx={[
         () => ({
-          pb: 10,
+          pb: 15,
           position: 'relative',
           bgcolor: 'background.neutral',
           '&::before': {
@@ -108,9 +150,36 @@ export function AboutVision({ sx, ...other }) {
           variant="h3"
           sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto' }}
         >
-          Our vision offering the best product nulla vehicula tortor scelerisque ultrices malesuada.
+          Connecting the global VLSI community through a seamless freelancing marketplace
         </Typography>
+
+        {renderServices()}
       </Container>
     </Box>
   );
 }
+
+// ----------------------------------------------------------------------
+
+const SERVICES = [
+  {
+    icon: 'mdi:check-decagram',
+    title: 'Verified Freelancers',
+    description: 'Work with pre-vetted semiconductor professionals with proven expertise in chip design, verification, and physical implementation.',
+  },
+  {
+    icon: 'mdi:account-switch',
+    title: 'Flexible Hiring',
+    description: 'Scale your team as needed with project-based or long-term engagements tailored to your semiconductor development timeline.',
+  },
+  {
+    icon: 'mdi:cash-multiple',
+    title: 'Cost-Effective Solutions',
+    description: 'Get high-quality VLSI work without the overhead costs associated with traditional hiring and onboarding processes.',
+  },
+  {
+    icon: 'mdi:earth',
+    title: 'Global Talent Pool',
+    description: 'Access VLSI experts across time zones, ensuring round-the-clock progress on your critical chip design projects.',
+  },
+];

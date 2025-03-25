@@ -24,7 +24,7 @@ import { varFade, MotionViewport } from 'src/components/animate';
 export function AboutTestimonials({ sx, ...other }) {
   const renderLink = () => (
     <Button color="primary" endIcon={<Iconify icon="eva:arrow-ios-forward-fill" />}>
-      Read more
+      View All Success Stories
     </Button>
   );
 
@@ -38,16 +38,16 @@ export function AboutTestimonials({ sx, ...other }) {
 
       <m.div variants={varFade('inUp')}>
         <Typography variant="h2" sx={{ my: 3, color: 'common.white' }}>
-          Who love <br />
-          my work
+          Success <br />
+          Stories
         </Typography>
       </m.div>
 
       <m.div variants={varFade('inUp')}>
         <Typography sx={{ color: 'common.white' }}>
-          Our goal is to create a product and service that you’re satisfied with and use it every
-          day. This is why we’re constantly working on our services to make it better every day and
-          really listen to what our users has to say.
+          Hear from our community of VLSI professionals and companies who have found success through 
+          Chip Makers Hub. We're dedicated to creating meaningful connections in the semiconductor 
+          industry and helping both freelancers and companies achieve their goals.
         </Typography>
       </m.div>
 
@@ -73,7 +73,7 @@ export function AboutTestimonials({ sx, ...other }) {
       ]}
     >
       <Masonry spacing={3} columns={{ xs: 1, md: 2 }} sx={{ ml: 0 }}>
-        {_testimonials.map((testimonial) => (
+        {VLSI_TESTIMONIALS.map((testimonial) => (
           <m.div key={testimonial.name} variants={varFade('inUp')}>
             <TestimonialItem testimonial={testimonial} />
           </m.div>
@@ -176,3 +176,38 @@ function TestimonialItem({ testimonial, sx, ...other }) {
     </Box>
   );
 }
+
+const VLSI_TESTIMONIALS = [
+  {
+    name: 'John Matthews',
+    role: 'ASIC Design Manager at TechSemi Inc.',
+    content: 'ChipMakersHub helped us find an exceptional verification engineer with specific UVM expertise within days. We completed our project ahead of schedule thanks to their quick matching system.',
+    ratingNumber: 5,
+    postedDate: new Date('2023-12-20T14:33'),
+    avatarUrl: `${CONFIG.assetsDir}/assets/images/avatar/avatar_6.jpg`,
+  },
+  {
+    name: 'Elena Volkov',
+    role: 'RTL Design Freelancer',
+    content: 'After 10 years at a large semiconductor company, I wanted more flexibility. Through ChipMakersHub, I now work with multiple clients on cutting-edge designs while maintaining my work-life balance.',
+    ratingNumber: 5,
+    postedDate: new Date('2023-11-14T12:12'),
+    avatarUrl: `${CONFIG.assetsDir}/assets/images/avatar/avatar_7.jpg`,
+  },
+  {
+    name: 'Robert Chen',
+    role: 'CEO of AIChip Startups',
+    content: 'As a new semiconductor startup, we couldn\'t afford to hire a full-time physical design team. ChipMakersHub connected us with experienced professionals who helped us tape out our first chip within budget.',
+    ratingNumber: 4.5,
+    postedDate: new Date('2023-10-05T09:25'),
+    avatarUrl: `${CONFIG.assetsDir}/assets/images/avatar/avatar_8.jpg`,
+  },
+  {
+    name: 'Aisha Kabir',
+    role: 'DFT Engineer',
+    content: 'The specialized projects available on ChipMakersHub have allowed me to focus exclusively on my area of expertise in scan insertion and ATPG. The platform is perfect for niche VLSI professionals.',
+    ratingNumber: 5,
+    postedDate: new Date('2023-09-17T15:46'),
+    avatarUrl: `${CONFIG.assetsDir}/assets/images/avatar/avatar_9.jpg`,
+  },
+];
