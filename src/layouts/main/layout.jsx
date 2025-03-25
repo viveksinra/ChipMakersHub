@@ -73,9 +73,23 @@ export function MainLayout({ sx, cssVars, children, slotProps, layoutQuery = 'md
             <SettingsButton />
 
             {/** @slot Sign in button */}
-            <SignInButton />
+            {/* <SignInButton /> */}
 
             {/** @slot Purchase button */}
+            <Button
+              variant="outlined"
+              rel="noopener"
+              target="_blank"
+              href={paths.minimalStore}
+              sx={(theme) => ({
+                display: 'none',
+                borderColor: theme.palette.grey[800],
+                color: theme.palette.text.primary,
+                [theme.breakpoints.up(layoutQuery)]: { display: 'inline-flex' },
+              })}
+            >
+              Developers
+            </Button>
             <Button
               variant="contained"
               rel="noopener"
@@ -86,7 +100,7 @@ export function MainLayout({ sx, cssVars, children, slotProps, layoutQuery = 'md
                 [theme.breakpoints.up(layoutQuery)]: { display: 'inline-flex' },
               })}
             >
-              Purchase
+              Company
             </Button>
           </Box>
         </>

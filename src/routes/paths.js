@@ -12,7 +12,7 @@ export const paths = {
   about: '/about-us',
   contact: '/contact-us',
   docs: '/docs',
-  minimalStore: 'https://mui.com/store/items/minimal-dashboard/',
+  minimalStore: 'https://www.viveksinra.com/store/items/minimal-dashboard/',
   // ChipMakersHub Routes
   forFreelancers: '/for-freelancers',
   forCompanies: '/for-companies',
