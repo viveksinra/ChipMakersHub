@@ -6,6 +6,11 @@ import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import Chip from '@mui/material/Chip';
+import Paper from '@mui/material/Paper';
 
 import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
@@ -19,133 +24,210 @@ import { Logo } from 'src/components/logo';
 
 const LINKS = [
   {
-    headline: 'Minimal',
+    headline: 'ChipMakersHub',
     children: [
       { name: 'About us', href: paths.about },
       { name: 'Contact us', href: paths.contact },
       { name: 'FAQs', href: paths.faqs },
+      { name: 'Join as Freelancer', href: '#' },
+      { name: 'Hire a Freelancer', href: '#' },
     ],
   },
   {
-    headline: 'Legal',
+    headline: 'Services',
     children: [
-      { name: 'Terms and condition', href: '#' },
-      { name: 'Privacy policy', href: '#' },
+      { name: 'Front-End Design', href: '#' },
+      { name: 'Physical Design', href: '#' },
+      { name: 'DFT Services', href: '#' },
+      { name: 'FPGA & Embedded', href: '#' },
+      { name: 'ASIC Design', href: '#' },
     ],
   },
-  { headline: 'Contact', children: [{ name: 'support@viveksinra.com', href: '#' }] },
+  { 
+    headline: 'Legal', 
+    children: [
+      { name: 'Terms and Conditions', href: '#' },
+      { name: 'Privacy Policy', href: '#' },
+    ],
+  },
+  { 
+    headline: 'Contact', 
+    children: [
+      { name: 'contact@chipmakershub.com', href: 'mailto:contact@chipmakershub.com' },
+      { name: 'www.chipmakershub.com', href: 'https://www.chipmakershub.com' },
+    ] 
+  },
 ];
+
+// VLSI specialty tags
+const SPECIALTY_TAGS = ['RTL Design', 'Verification', 'DFT', 'Physical Design', 'SoC', 'FPGA', 'Analog'];
 
 // ----------------------------------------------------------------------
 
 const FooterRoot = styled('footer')(({ theme }) => ({
   position: 'relative',
-  backgroundColor: theme.vars.palette.background.default,
+  backgroundColor: theme.palette.mode === 'light' 
+    ? theme.palette.grey[100] 
+    : theme.palette.background.default,
+  borderTop: `1px solid ${theme.palette.divider}`,
 }));
 
 export function Footer({ sx, layoutQuery = 'md', ...other }) {
   return (
     <FooterRoot sx={sx} {...other}>
-      <Divider />
-
       <Container
         sx={(theme) => ({
-          pb: 5,
+          pb: 8,
           pt: 10,
-          textAlign: 'center',
-          [theme.breakpoints.up(layoutQuery)]: { textAlign: 'unset' },
+          [theme.breakpoints.up(layoutQuery)]: { 
+            pb: 10,
+          },
         })}
       >
-        <Logo />
+        <Grid container spacing={4}>
+          <Grid size={{ xs: 12, [layoutQuery]: 4 }}>
+            <Stack spacing={3}>
+              <Logo sx={{ mb: 1 }} />
+              
+              <Typography variant="body2" color="text.secondary">
+                Your one-stop VLSI freelancing platform connecting companies with skilled semiconductor professionals
+                specializing in RTL design, verification, DFT, physical design, and more.
+              </Typography>
+              
+              <Box>
+                <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+                  {SPECIALTY_TAGS.map((tag) => (
+                    <Chip 
+                      key={tag} 
+                      label={tag} 
+                      size="small" 
+                      variant="outlined" 
+                      sx={{ m: 0.5 }} 
+                    />
+                  ))}
+                </Stack>
+              </Box>
 
-        <Grid
-          container
-          sx={[
-            (theme) => ({
-              mt: 3,
-              justifyContent: 'center',
-              [theme.breakpoints.up(layoutQuery)]: { justifyContent: 'space-between' },
-            }),
-          ]}
-        >
-          <Grid size={{ xs: 12, [layoutQuery]: 3 }}>
-            <Typography
-              variant="body2"
-              sx={(theme) => ({
-                mx: 'auto',
-                maxWidth: 280,
-                [theme.breakpoints.up(layoutQuery)]: { mx: 'unset' },
-              })}
-            >
-              The starting point for your next project with ChipMakersHubUI Kit, built on the newest
-              version of Material-UI ©, ready to be customized to your style.
-            </Typography>
-
-            <Box
-              sx={(theme) => ({
-                mt: 3,
-                mb: 5,
-                display: 'flex',
-                justifyContent: 'center',
-                [theme.breakpoints.up(layoutQuery)]: { mb: 0, justifyContent: 'flex-start' },
-              })}
-            >
-              {_socials.map((social) => (
-                <IconButton key={social.label}>
-                  {social.value === 'twitter' && <TwitterIcon />}
-                  {social.value === 'facebook' && <FacebookIcon />}
-                  {social.value === 'instagram' && <InstagramIcon />}
-                  {social.value === 'linkedin' && <LinkedinIcon />}
-                </IconButton>
-              ))}
-            </Box>
+              <Stack direction="row" spacing={1}>
+                {_socials.map((social) => (
+                  <IconButton 
+                    key={social.label}
+                    sx={{ 
+                      color: 'primary.main',
+                      '&:hover': { bgcolor: 'primary.lighter' }
+                    }}
+                  >
+                    {social.value === 'twitter' && <TwitterIcon />}
+                    {social.value === 'facebook' && <FacebookIcon />}
+                    {social.value === 'instagram' && <InstagramIcon />}
+                    {social.value === 'linkedin' && <LinkedinIcon />}
+                  </IconButton>
+                ))}
+              </Stack>
+            </Stack>
           </Grid>
 
-          <Grid size={{ xs: 12, [layoutQuery]: 6 }}>
-            <Box
-              sx={(theme) => ({
-                gap: 5,
-                display: 'flex',
-                flexDirection: 'column',
-                [theme.breakpoints.up(layoutQuery)]: { flexDirection: 'row' },
-              })}
-            >
+          <Grid size={{ xs: 12, [layoutQuery]: 8 }}>
+            <Grid container spacing={3}>
               {LINKS.map((list) => (
-                <Box
-                  key={list.headline}
-                  sx={(theme) => ({
-                    gap: 2,
-                    width: 1,
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
-                    [theme.breakpoints.up(layoutQuery)]: { alignItems: 'flex-start' },
-                  })}
-                >
-                  <Typography component="div" variant="overline">
+                <Grid key={list.headline} size={{ xs: 6, sm: 3 }}>
+                  <Typography 
+                    component="div" 
+                    variant="overline" 
+                    sx={{ 
+                      mb: 2,
+                      color: 'primary.main',
+                      fontWeight: 'bold',
+                    }}
+                  >
                     {list.headline}
                   </Typography>
 
-                  {list.children.map((link) => (
-                    <Link
-                      key={link.name}
-                      component={RouterLink}
-                      href={link.href}
-                      color="inherit"
-                      variant="body2"
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
-                </Box>
+                  <Stack spacing={1.5}>
+                    {list.children.map((link) => (
+                      <Link
+                        key={link.name}
+                        component={RouterLink}
+                        href={link.href}
+                        color="text.secondary"
+                        variant="body2"
+                        sx={{ 
+                          '&:hover': { 
+                            color: 'primary.main',
+                            textDecoration: 'none',
+                          }
+                        }}
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </Stack>
+                </Grid>
               ))}
-            </Box>
+            </Grid>
           </Grid>
         </Grid>
 
-        <Typography variant="body2" sx={{ mt: 10 }}>
-          © All rights reserved.
-        </Typography>
+        <Divider sx={{ my: 5 }} />
+
+        {/* Newsletter Subscription */}
+        <Paper
+          elevation={2}
+          sx={{
+            p: 4,
+            mb: 5,
+            borderRadius: 2,
+            bgcolor: 'background.paper',
+          }}
+        >
+          <Grid container spacing={3} alignItems="center">
+            <Grid size={{ xs: 12, sm: 7 }}>
+              <Typography variant="h6" sx={{ mb: 1 }}>
+                Join the ChipMakersHub Newsletter
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Get the latest updates on VLSI opportunities and industry insights
+              </Typography>
+            </Grid>
+            <Grid size={{ xs: 12, sm: 5 }}>
+              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1}>
+                <TextField 
+                  fullWidth
+                  placeholder="Enter your email" 
+                  size="small" 
+                  sx={{ flexGrow: 1 }}
+                />
+                <Button 
+                  variant="contained" 
+                  color="primary"
+                  sx={{ 
+                    px: 3,
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  Subscribe
+                </Button>
+              </Stack>
+            </Grid>
+          </Grid>
+        </Paper>
+
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
+            justifyContent: 'space-between',
+            alignItems: { xs: 'center', sm: 'flex-start' },
+          }}
+        >
+          <Typography variant="body2" color="text.secondary">
+            © {new Date().getFullYear()} ChipMakersHub. All rights reserved.
+          </Typography>
+          
+          <Typography variant="caption" color="text.secondary" sx={{ mt: { xs: 1, sm: 0 } }}>
+            Where the world connects for VLSI work
+          </Typography>
+        </Box>
       </Container>
     </FooterRoot>
   );
@@ -160,18 +242,53 @@ export function HomeFooter({ sx, ...other }) {
         {
           py: 5,
           textAlign: 'center',
+          bgcolor: (theme) => theme.palette.mode === 'light' 
+            ? theme.palette.grey[100] 
+            : theme.palette.background.neutral,
         },
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
       {...other}
     >
       <Container>
-        <Logo />
-        <Box sx={{ mt: 1, typography: 'caption' }}>
-          © All rights reserved.
-          <br /> made by
-          <Link href="https://viveksinra.com/"> viveksinra.com </Link>
-        </Box>
+        <Logo sx={{ mb: 2 }} />
+        
+        <Stack spacing={3} alignItems="center">
+          <Stack direction="row" spacing={2} justifyContent="center">
+            {_socials.map((social) => (
+              <IconButton 
+                key={social.label}
+                size="small"
+                sx={{ 
+                  color: 'primary.main',
+                  '&:hover': { bgcolor: 'primary.lighter' }
+                }}
+              >
+                {social.value === 'twitter' && <TwitterIcon />}
+                {social.value === 'facebook' && <FacebookIcon />}
+                {social.value === 'instagram' && <InstagramIcon />}
+                {social.value === 'linkedin' && <LinkedinIcon />}
+              </IconButton>
+            ))}
+          </Stack>
+          
+          <Typography variant="caption" color="text.secondary">
+            © {new Date().getFullYear()} ChipMakersHub. All rights reserved.
+            <br />
+            Where the world connects for VLSI work
+          </Typography>
+          
+          <Link 
+            href="https://www.chipmakershub.com" 
+            target="_blank"
+            rel="noopener"
+            color="primary"
+            underline="hover"
+            variant="caption"
+          >
+            www.chipmakershub.com
+          </Link>
+        </Stack>
       </Container>
     </FooterRoot>
   );
