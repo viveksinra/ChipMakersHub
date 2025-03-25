@@ -1,0 +1,16 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+Alwasy use Javascript
+Always use Material Ui
+first check the package in [package.json](mdc:package.json) then if neceesary install a package
+first check the components folder for various component, use it. if not found then create a new component in mycomponent folder
+
+for icon use react icon
+
+
