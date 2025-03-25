@@ -33,7 +33,7 @@ const LINKS = [
       { name: 'Privacy policy', href: '#' },
     ],
   },
-  { headline: 'Contact', children: [{ name: 'support@minimals.cc', href: '#' }] },
+  { headline: 'Contact', children: [{ name: 'support@viveksinra.com', href: '#' }] },
 ];
 
 // ----------------------------------------------------------------------
@@ -77,7 +77,7 @@ export function Footer({ sx, layoutQuery = 'md', ...other }) {
                 [theme.breakpoints.up(layoutQuery)]: { mx: 'unset' },
               })}
             >
-              The starting point for your next project with Minimal UI Kit, built on the newest
+              The starting point for your next project with ChipMakersHubUI Kit, built on the newest
               version of Material-UI ©, ready to be customized to your style.
             </Typography>
 
@@ -170,7 +170,7 @@ export function HomeFooter({ sx, ...other }) {
         <Box sx={{ mt: 1, typography: 'caption' }}>
           © All rights reserved.
           <br /> made by
-          <Link href="https://minimals.cc/"> minimals.cc </Link>
+          <Link href="https://viveksinra.com/"> viveksinra.com </Link>
         </Box>
       </Container>
     </FooterRoot>

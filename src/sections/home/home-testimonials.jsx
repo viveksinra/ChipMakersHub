@@ -73,8 +73,8 @@ export function HomeTestimonials({ sx, ...other }) {
   const renderDescription = () => (
     <SectionTitle
       caption="testimonials"
-      title="Rumors are flying"
-      txtGradient="that..."
+      title="Success stories from"
+      txtGradient="our community"
       sx={{ mb: { xs: 5, md: 8 }, textAlign: 'center' }}
     />
   );
@@ -179,16 +179,16 @@ export function HomeTestimonials({ sx, ...other }) {
         sx={{ gap: 5, flexDirection: { xs: 'column', md: 'row' } }}
       >
         {[
-          { label: 'Purchased order', value: 12.121 },
-          { label: 'Happy customers', value: 160 },
-          { label: 'Review rate', value: 4.9 },
+          { label: 'VLSI Professionals', value: 5.2 },
+          { label: 'Successful Projects', value: 1200 },
+          { label: 'Client Satisfaction', value: 4.9 },
         ].map((item) => (
           <Stack key={item.label} spacing={2} sx={{ textAlign: 'center', width: 1 }}>
             <m.div variants={varFade('inUp', { distance: 24 })}>
               <AnimateCountUp
                 to={item.value}
-                unit={item.label === 'Purchased order' ? 'k+' : '+'}
-                toFixed={item.label === 'Happy customers' ? 0 : 1}
+                unit={item.label === 'VLSI Professionals' ? 'k+' : '+'}
+                toFixed={item.label === 'Successful Projects' ? 0 : 1}
                 sx={[
                   (theme) => ({
                     fontWeight: 'fontWeightBold',
@@ -255,53 +255,50 @@ const createReview = (index) => ({
 const TESTIMONIALS = [
   {
     ...createReview(1),
-    category: 'Design Quality',
-    content: `The quality of this template is very good, the TypeScript files are neat and the communication with the team behind this template is very good! I would recommend this template for any kind of project, as they implement new features every now and then and enhance their design. I will definitely be using more templates from this team and re-purchasing this template for other projects.`,
+    category: 'RTL Design',
+    content: `ChipMakersHub helped me find excellent RTL design projects with top semiconductor companies. The platform is easy to use and the project matching is spot-on. I've been able to work on challenging VHDL and Verilog projects while maintaining flexibility in my schedule.`,
     postedAt: 'April 20, 2024 23:15:30',
   },
   {
     ...createReview(2),
-    category: 'Design Quality',
-    content: `Amazing. I've never purchased complete front ends before, but I'll definitely be doing this again!`,
+    category: 'Verification',
+    content: `As a verification engineer specializing in UVM, finding the right projects used to be challenging. ChipMakersHub connected me with companies that value my expertise. The platform's payment system is reliable and the support team is excellent!`,
     postedAt: 'March 19, 2024 23:15:30',
   },
   {
     ...createReview(3),
-    category: 'Code Quality',
-    content: `Clean & Complete (Design & Code). Thansk Minimal team :)`,
+    category: 'Physical Design',
+    content: `ChipMakersHub is a game-changer for physical design engineers. I've worked on multiple projects involving floorplanning, CTS, and timing closure. The platform makes it easy to showcase specialized skills that traditional job sites don't understand.`,
     postedAt: 'April 19, 2023 23:15:30',
   },
   {
     ...createReview(4),
-    category: 'Customer Support',
-    content: `Thanks to Minimal for customer support with email. I solved the problem. And the code quality is good, too.`,
+    category: 'Company Feedback',
+    content: `We needed DFT specialists for our ASIC project quickly. ChipMakersHub delivered exceptional talent within days. The freelancers were experienced in MBIST implementation exactly as we required. This platform understands semiconductor needs.`,
     postedAt: 'May 19, 2023 23:15:30',
   },
   {
     ...createReview(5),
-    category: 'Customer Support',
-    content:
-      'Great UI kit, really beautiful as well. Also the customer support is very warm-hearted. However, I hope the components and themes can be provided as a separated project (package).',
+    category: 'DFT',
+    content: `Finding projects that specifically need DFT expertise used to be difficult. ChipMakersHub has a dedicated category for testability professionals. I've completed multiple scan insertion and ATPG projects through the platform in the past year.`,
     postedAt: 'June 19, 2023 23:15:30',
   },
   {
     ...createReview(6),
-    category: 'Design Quality',
-    content: 'I would never have been able to create all these beautifull components myself!',
+    category: 'FPGA Design',
+    content: `As an FPGA designer working with Xilinx and Intel platforms, ChipMakersHub connected me with clients looking for exactly my skill set. The platform's focus on VLSI professionals makes job searching much more efficient.`,
     postedAt: 'July 19, 2023 23:15:30',
   },
   {
     ...createReview(7),
-    category: 'Code Quality',
-    content:
-      'The quality of this template is excellent. However, as an individual, the cost of obtaining the TypeScript Source version is beyond my means. Despite my strong desire to acquire it, my limited personal budget does not allow me to do so.',
+    category: 'Company Feedback',
+    content: `Our startup needed specialized analog mixed-signal expertise that was difficult to find locally. ChipMakersHub helped us connect with talented professionals globally. We completed our power management IC design ahead of schedule thanks to the platform.`,
     postedAt: 'August 19, 2023 23:15:30',
   },
   {
     ...createReview(8),
-    category: 'Customizability',
-    content:
-      'The design and code quality are impressive. Regular updates and excellent customer support are major advantages.',
+    category: 'SoC Development',
+    content: `The SoC projects available through ChipMakersHub are high-quality and well-scoped. As a system-on-chip specialist, I appreciate that companies on this platform understand the complexities of our work and value our expertise appropriately.`,
     postedAt: 'September 19, 2023 23:15:30',
   },
 ];

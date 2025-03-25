@@ -28,7 +28,7 @@ By default we provide demo data from : `https://api-dev-minimal...`
 
 To set up your local server:
 
-**Guide:** [https://docs.minimals.cc/mock-server](https://docs.minimals.cc/mock-server).
+**Guide:** [https://docs.viveksinra.com/mock-server](https://docs.viveksinra.com/mock-server).
 
 **Resource:** [Download](https://www.dropbox.com/sh/6ojn099upi105tf/AACpmlqrNUacwbBfVdtt2t6va?dl=0).
 

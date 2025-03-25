@@ -22,100 +22,66 @@ import { FloatLine, FloatPlusIcon, FloatTriangleDownIcon } from './components/sv
 
 const FAQs = [
   {
-    question: 'How can I get the update?',
+    question: 'What is ChipMakersHub?',
     answer: (
       <Typography>
-        You will get 12 months of free
-        <Link
-          href="https://support.mui.com/hc/en-us/articles/360008775240-How-do-I-get-access-to-an-item-I-purchased"
-          target="_blank"
-          rel="noopener"
-          sx={{ mx: 0.5 }}
-        >
-          updates
-        </Link>
-        with the purchase. Please renew your license to get updates after that.
+        ChipMakersHub is a dedicated platform connecting the global VLSI community. It bridges the gap between semiconductor companies and highly skilled freelance professionals specializing in various VLSI domains including RTL design, verification, DFT, physical design, and more.
       </Typography>
     ),
   },
   {
-    question: 'Which license is right for you?',
+    question: 'What services are available on ChipMakersHub?',
     answer: (
       <Box component="ul" sx={{ pl: 3, listStyleType: 'disc' }}>
-        <li> All licenses do not apply to open source.</li>
-        <li> One licenses / one end product (3 licenses / 3 products...).</li>
-        <li>
-          <strong>Standard / Plus</strong> license used in free products (Internal management...).
-        </li>
-        <li>
-          <strong>Extended</strong> license used in charge products, collect fees from users
-          (SAAS...).
-        </li>
-        <li>
-          Learn more about the
-          <Link
-            href="https://docs.minimals.cc/package/"
-            target="_blank"
-            rel="noopener"
-            sx={{ mx: 0.5 }}
-          >
-            package & license
-          </Link>
-        </li>
+        <li>Front-End Design & Verification (RTL, UVM, FPGA)</li>
+        <li>DFT (Design for Testability)</li>
+        <li>Physical Design & Implementation</li>
+        <li>Analog & Mixed-Signal Design</li>
+        <li>FPGA & Embedded Systems</li>
+        <li>Physical Verification & Signoff</li>
+        <li>ASIC Design & Tape-Out</li>
+        <li>Semiconductor Consulting & Training</li>
       </Box>
     ),
   },
   {
-    question: 'How long is my license valid for?',
+    question: 'How do I join as a freelancer?',
+    answer: (
+      <Typography>
+        As a VLSI engineer, RTL designer, or verification expert looking for freelance projects, you can sign up through our dedicated freelancer portal. You'll gain access to top semiconductor companies, flexible remote work opportunities, competitive project-based payments, and a thriving community of industry professionals.
+      </Typography>
+    ),
+  },
+  {
+    question: 'What benefits do companies get from ChipMakersHub?',
     answer: (
       <Box component="ul" sx={{ pl: 3, listStyleType: 'disc' }}>
-        <li> The license is lifetime.</li>
-        <li> You get 12 months of free updates.</li>
+        <li><strong>Verified Freelancers</strong> – Work with top-tier semiconductor professionals</li>
+        <li><strong>Flexible Hiring</strong> – Scale your team with project-based or long-term engagements</li>
+        <li><strong>Cost-Effective Solutions</strong> – Get high-quality work without the overhead costs</li>
+        <li><strong>Global Talent Pool</strong> – Access experts from anywhere in the world</li>
       </Box>
     ),
   },
   {
-    question: 'Which platforms will the template support?',
+    question: 'What VLSI expertise can I find on ChipMakersHub?',
     answer: (
-      <Typography>
-        {`The components in MUI are designed to work in the latest, stable releases of all major browsers, including Chrome, Firefox, Safari, and Edge. We don't support Internet Explorer 11. `}
-        Learn more about the
-        <Link
-          href="https://mui.com/material-ui/getting-started/supported-platforms/"
-          target="_blank"
-          rel="noopener"
-          sx={{ mx: 0.5 }}
-        >
-          supported platforms
-        </Link>
-      </Typography>
+      <Box component="ul" sx={{ pl: 3, listStyleType: 'disc' }}>
+        <li>ASIC & FPGA Design</li>
+        <li>RTL Development & Verification</li>
+        <li>DFT (Design for Testability)</li>
+        <li>Physical Design & Signoff</li>
+        <li>Analog & Mixed-Signal Design</li>
+        <li>Embedded Systems & SoC Development</li>
+        <li>Semiconductor Consulting & Training</li>
+      </Box>
     ),
   },
   {
-    question: 'For what kind of projects is the Standard license intended?',
+    question: 'How does ChipMakersHub vet freelancers?',
     answer: (
       <Typography>
-        The Standard license is designed for internal applications in which staff will access the
-        application. An example could be the back-office dashboard of a public-facing e-commerce
-        website in which staff would sign in and manage inventory, customers, etc.
-      </Typography>
-    ),
-  },
-  {
-    question: 'Do you have a free demo to review the code before purchasing?',
-    answer: (
-      <Typography>
-        Yes, you can check out our
-        <Link
-          href="https://mui.com/store/items/minimal-dashboard-free/"
-          target="_blank"
-          rel="noopener"
-          sx={{ mx: 0.5 }}
-        >
-          open source
-        </Link>
-        dashboard template which should give you an overview of the code quality and folder
-        structure. Keep in mind that some aspects may differ from this Paid version.
+        We have a thorough verification process for all freelancers on our platform. This includes checking credentials, work experience, technical skills assessment, and portfolio review to ensure companies get access to the highest quality semiconductor professionals for their projects.
       </Typography>
     ),
   },
@@ -133,8 +99,8 @@ export function HomeFAQs({ sx, ...other }) {
   const renderDescription = () => (
     <SectionTitle
       caption="FAQs"
-      title="We’ve got the"
-      txtGradient="answers"
+      title="Common questions"
+      txtGradient="answered"
       sx={{ textAlign: 'center' }}
     />
   );
@@ -219,7 +185,7 @@ export function HomeFAQs({ sx, ...other }) {
 
       <m.div variants={varFade('in')}>
         <Typography sx={{ mt: 2, mb: 3, color: 'text.secondary' }}>
-          Please describe your case to receive the most accurate advice
+          Our team is here to help you with any questions about our VLSI freelancing platform
         </Typography>
       </m.div>
 
@@ -227,7 +193,7 @@ export function HomeFAQs({ sx, ...other }) {
         <Button
           color="inherit"
           variant="contained"
-          href="mailto:support@minimals.cc?subject=[Feedback] from Customer"
+          href="mailto:contact@chipmakershub.com?subject=Question about ChipMakersHub"
           startIcon={<Iconify icon="fluent:mail-24-filled" />}
         >
           Contact us
