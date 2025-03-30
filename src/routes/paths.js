@@ -19,8 +19,8 @@ export const paths = {
   services: '/services',
   whyChooseUs: '/why-choose-us',
   joinTheHub: '/join-the-hub',
-  privacyPolicy: '/privacy-policy',
-  termsConditions: '/terms-conditions',
+  privacyPolicy: '/legal/privacy-policy',
+  termsConditions: '/legal/terms-conditions',
   // AUTH
   auth: {
     amplify: {
