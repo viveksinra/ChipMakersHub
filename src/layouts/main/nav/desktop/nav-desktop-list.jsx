@@ -14,13 +14,13 @@ import { NavItemDashboard } from './nav-desktop-item-dashboard';
 // ----------------------------------------------------------------------
 
 export function NavList({ data, sx, ...other }) {
-  const pathname = usePathname();
+  const pathname = usePathname() || '';
   const navItemRef = useRef(null);
   const theme = useTheme();
   const isRtl = theme.direction === 'rtl';
   const [hoverTimer, setHoverTimer] = useState(null);
 
-  const isActive = isActiveLink(pathname, data.path, !!data.children);
+  const isActive = data && data.path ? isActiveLink(pathname, data.path, !!data.children) : false;
   const { value: open, onFalse: onClose, onTrue: onOpen } = useBoolean();
 
   useEffect(() => {
@@ -34,13 +34,13 @@ export function NavList({ data, sx, ...other }) {
   }, [pathname]);
 
   const handleOpenMenu = useCallback(() => {
-    if (data.children) {
+    if (data && data.children) {
       if (hoverTimer) clearTimeout(hoverTimer);
       setHoverTimer(setTimeout(() => {
         onOpen();
       }, 100));
     }
-  }, [data.children, onOpen, hoverTimer]);
+  }, [data, onOpen, hoverTimer]);
 
   const handleCloseMenu = useCallback(() => {
     if (hoverTimer) clearTimeout(hoverTimer);
@@ -60,7 +60,7 @@ export function NavList({ data, sx, ...other }) {
       active={isActive}
       // options
       hasChild={!!data.children}
-      externalLink={isExternalLink(data.path)}
+      externalLink={data && data.path ? isExternalLink(data.path) : false}
       // action
       onMouseEnter={handleOpenMenu}
       onMouseLeave={handleCloseMenu}
@@ -116,7 +116,7 @@ export function NavList({ data, sx, ...other }) {
 // ----------------------------------------------------------------------
 
 function NavSubList({ data, subheader, sx, ...other }) {
-  const pathname = usePathname();
+  const pathname = usePathname() || '';
 
   const isDashboard = subheader === 'Dashboard';
 
@@ -155,7 +155,7 @@ function NavSubList({ data, subheader, sx, ...other }) {
                 subItem
                 title={item.title}
                 path={item.path}
-                active={isEqualPath(item.path, pathname)}
+                active={item && item.path ? isEqualPath(item.path, pathname) : false}
               />
             </NavLi>
           )

@@ -23,7 +23,7 @@ export function NavList({
 }) {
   const theme = useTheme();
 
-  const pathname = usePathname();
+  const pathname = usePathname() || '';
 
   const isActive = isActiveLink(pathname, data.path, !!data.children);
 

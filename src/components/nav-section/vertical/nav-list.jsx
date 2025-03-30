@@ -11,7 +11,7 @@ import { NavUl, NavLi, NavCollapse } from '../components';
 // ----------------------------------------------------------------------
 
 export function NavList({ data, depth, render, slotProps, currentRole, enabledRootRedirect }) {
-  const pathname = usePathname();
+  const pathname = usePathname() || '';
   const navItemRef = useRef(null);
 
   const isActive = isActiveLink(pathname, data.path, !!data.children);
