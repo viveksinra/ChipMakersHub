@@ -80,7 +80,7 @@ export function MainLayout({ sx, cssVars, children, slotProps, layoutQuery = 'md
               variant="outlined"
               rel="noopener"
               target="_blank"
-              href={paths.minimalStore}
+              href={paths.forProgrammers}
               sx={(theme) => ({
                 display: 'none',
                 borderColor: theme.palette.grey[800],
@@ -94,7 +94,7 @@ export function MainLayout({ sx, cssVars, children, slotProps, layoutQuery = 'md
               variant="contained"
               rel="noopener"
               target="_blank"
-              href={paths.minimalStore}
+              href={paths.forCompanies}
               sx={(theme) => ({
                 display: 'none',
                 [theme.breakpoints.up(layoutQuery)]: { display: 'inline-flex' },

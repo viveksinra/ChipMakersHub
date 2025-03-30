@@ -1,10 +1,10 @@
-# For Freelancers
+# For Programmer
 
 ## Unlock Your Potential in VLSI Freelancing
 
 Are you a VLSI engineer, RTL designer, or verification expert looking for freelance projects? Chip Makers Hub provides the perfect platform to showcase your skills and connect with top semiconductor companies worldwide.
 
-## What We Offer to Freelancers
+## What We Offer to Programmer
 
 ✔ **Access to top semiconductor companies** - Work with industry leaders and innovative startups
 ✔ **Flexible remote work opportunities** - Balance your professional and personal life

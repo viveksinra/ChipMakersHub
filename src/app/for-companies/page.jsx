@@ -1,11 +1,11 @@
 import { CONFIG } from 'src/global-config';
+import { CompanyView } from 'src/sections/for-company/company-view';
 
-import { AboutView } from 'src/sections/about/view';
 
 // ----------------------------------------------------------------------
 
 export const metadata = { title: `About us - ${CONFIG.appName}` };
 
 export default function Page() {
-  return <AboutView />;
+  return <CompanyView />;
 }
