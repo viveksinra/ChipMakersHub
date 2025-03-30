@@ -8,7 +8,6 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import LinearProgress from '@mui/material/LinearProgress';
 
-import { fPercent } from '../../utils/format-number';
 
 import { CONFIG } from 'src/global-config';
 
