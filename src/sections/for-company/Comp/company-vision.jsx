@@ -15,50 +15,7 @@ import { varFade, MotionViewport } from 'src/components/animate';
 // ----------------------------------------------------------------------
 
 export function CompanyVision({ sx, ...other }) {
-  const renderImage = () => (
-    <Image
-      src={`${CONFIG.assetsDir}/assets/images/about/vision.webp`}
-      alt="About vision"
-      ratio={{ xs: '4/3', sm: '16/9' }}
-      slotProps={{
-        overlay: {
-          sx: (theme) => ({
-            bgcolor: varAlpha(theme.vars.palette.grey['900Channel'], 0.48),
-          }),
-        },
-      }}
-    />
-  );
 
-  const renderLogos = () => (
-    <Box
-      sx={[
-        () => ({
-          width: 1,
-          zIndex: 9,
-          bottom: 0,
-          opacity: 0.48,
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          position: 'absolute',
-          justifyContent: 'center',
-          py: { xs: 1.5, md: 2.5 },
-        }),
-      ]}
-    >
-      {['intel', 'amd', 'nvidia', 'tsmc', 'arm', 'qualcomm'].map((logo) => (
-        <Box
-          component={m.img}
-          key={logo}
-          variants={varFade('in')}
-          alt={logo}
-          src={`${CONFIG.assetsDir}/assets/icons/brands/ic-brand-${logo}.svg`}
-          sx={{ m: { xs: 1.5, md: 2.5 }, height: { xs: 20, md: 32 } }}
-        />
-      ))}
-    </Box>
-  );
 
   const renderServices = () => (
     <Box sx={{ mt: 8, textAlign: 'center' }}>
@@ -136,8 +93,7 @@ export function CompanyVision({ sx, ...other }) {
             justifyContent: 'center',
           }}
         >
-          {renderImage()}
-          {renderLogos()}
+     
 
           <Fab sx={{ position: 'absolute', zIndex: 9 }}>
             <Iconify icon="solar:play-broken" width={24} />
