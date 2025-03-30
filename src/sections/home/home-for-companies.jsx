@@ -65,7 +65,7 @@ export function HomeForCompanies() {
           <Grid item xs={12} md={6}>
             <Image
               alt="Semiconductor Company"
-              src="/assets/illustrations/illustration_company.svg"
+              src="/myAssets/chip3.jpg"
               sx={{
                 width: '100%',
                 height: 'auto',

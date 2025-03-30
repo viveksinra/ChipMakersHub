@@ -51,7 +51,7 @@ export function HomeForProgrammers() {
           <Grid item xs={12} md={6}>
             <Image
               alt="VLSI Freelancer"
-              src="/assets/illustrations/illustration_freelancer.svg"
+              src="/myAssets/chip4.png"
               sx={{
                 width: '100%',
                 height: 'auto',
