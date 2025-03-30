@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 
 import { CONFIG } from 'src/global-config';
 
-import { Image } from 'src/components/image';
 import { Iconify } from 'src/components/iconify';
 import { varFade, MotionViewport } from 'src/components/animate';
 
@@ -18,7 +17,7 @@ export function CompanyVision({ sx, ...other }) {
 
 
   const renderServices = () => (
-    <Box sx={{ mt: 8, textAlign: 'center' }}>
+    <Box sx={{ mt: 5, textAlign: 'center' }}>
       <m.div variants={varFade('inUp')}>
         <Typography variant="h4" sx={{ mb: 3 }}>
           Why Companies Choose ChipMakersHub
@@ -64,7 +63,7 @@ export function CompanyVision({ sx, ...other }) {
       component="section"
       sx={[
         () => ({
-          pb: 15,
+          overflow: 'hidden',
           position: 'relative',
           bgcolor: 'background.neutral',
           '&::before': {
@@ -81,10 +80,13 @@ export function CompanyVision({ sx, ...other }) {
       ]}
       {...other}
     >
-      <Container component={MotionViewport}>
+      <Container 
+        component={MotionViewport}
+        sx={{ py: { xs: 10, md: 15 } }}
+      >
         <Box
           sx={{
-            mb: 10,
+            mb: 5,
             borderRadius: 2,
             display: 'flex',
             overflow: 'hidden',
@@ -94,7 +96,6 @@ export function CompanyVision({ sx, ...other }) {
           }}
         >
      
-
           <Fab sx={{ position: 'absolute', zIndex: 9 }}>
             <Iconify icon="solar:play-broken" width={24} />
           </Fab>

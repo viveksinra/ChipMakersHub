@@ -155,14 +155,14 @@ export function HomeHero({ sx, ...other }) {
         <Stack spacing={2.5} sx={{ alignItems: 'center' }}>
           <Button
             component={RouterLink}
-            href={paths.dashboard.root}
+            href={paths.forProgrammers}
             color="inherit"
             size="large"
             variant="contained"
             startIcon={<Iconify width={24} icon="iconoir:flash" />}
           >
             <span>
-              Sign Up as a Freelancer
+              Join as a Programmer
             </span>
           </Button>
         </Stack>
@@ -175,9 +175,9 @@ export function HomeHero({ sx, ...other }) {
           variant="outlined"
           startIcon={<Iconify width={24} icon="carbon:launch" />}
           component={RouterLink}
-          href={paths.dashboard.root}
+          href={paths.forCompanies}
         >
-          Hire a Freelancer
+          Join as a Company
         </Button>
       </m.div>
     </Box>
