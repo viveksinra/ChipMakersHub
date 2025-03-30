@@ -11,7 +11,7 @@ import { ScrollProgress, useScrollProgress } from 'src/components/animate/scroll
 import { HomeHero } from '../home-hero';
 import { HomeFAQs } from '../home-faqs';
 import { HomeAboutUs } from '../home-about-us';
-import { HomeForFreelancers } from '../home-for-freelancers';
+import { HomeForProgrammers } from '../home-for-programmers';
 import { HomeForCompanies } from '../home-for-companies';
 import { HomeServices } from '../home-services';
 import { HomeWhyChooseUs } from '../home-why-choose-us';
@@ -41,7 +41,7 @@ export function HomeView() {
       <Stack sx={{ position: 'relative', bgcolor: 'background.default' }}>
         <HomeAboutUs />
 
-        <HomeForFreelancers />
+        <HomeForProgrammers />
 
         <HomeForCompanies />
 

@@ -14,7 +14,7 @@ export const paths = {
   docs: '/docs',
   minimalStore: 'https://www.viveksinra.com/store/items/minimal-dashboard/',
   // ChipMakersHub Routes
-  forFreelancers: '/for-freelancers',
+  forProgrammers: '/for-programmers',
   forCompanies: '/for-companies',
   services: '/services',
   whyChooseUs: '/why-choose-us',

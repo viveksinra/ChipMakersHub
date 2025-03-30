@@ -37,7 +37,7 @@ const benefits = [
 
 // ----------------------------------------------------------------------
 
-export function HomeForFreelancers() {
+export function HomeForProgrammers() {
   const theme = useTheme();
 
   return (
