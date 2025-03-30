@@ -10,10 +10,10 @@ import { Iconify } from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 
-export function FaqsList({ sx, ...other }) {
+export function FaqsList({ sx, faqsData = _faqs, ...other }) {
   return (
     <Box sx={sx} {...other}>
-      {_faqs.map((accordion) => (
+      {faqsData.map((accordion) => (
         <Accordion key={accordion.id}>
           <AccordionSummary expandIcon={<Iconify icon="eva:arrow-ios-downward-fill" />}>
             <Typography variant="subtitle1">{accordion.heading}</Typography>

@@ -3,13 +3,10 @@ import { varAlpha } from 'minimal-shared/utils';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import { outlinedInputClasses } from '@mui/material/OutlinedInput';
+import Typography from '@mui/material/Typography';
 
 import { CONFIG } from 'src/global-config';
 
-import { Iconify } from 'src/components/iconify';
 import { varFade, AnimateText, MotionContainer, animateTextClasses } from 'src/components/animate';
 
 // ----------------------------------------------------------------------
@@ -26,7 +23,7 @@ export function FaqsHero({ sx, ...other }) {
               `url(${CONFIG.assetsDir}/assets/images/faqs/hero.webp)`,
             ],
           }),
-          height: { md: 560 },
+          height: { md: 400 },
           py: { xs: 10, md: 0 },
           overflow: 'hidden',
           position: 'relative',
@@ -46,7 +43,7 @@ export function FaqsHero({ sx, ...other }) {
           <AnimateText
             component="h1"
             variant="h1"
-            textContent={['Where', 'can we help you?']}
+            textContent={['VLSI', 'Freelancing Support']}
             variants={varFade('inRight', { distance: 24 })}
             sx={{
               color: 'common.white',
@@ -57,25 +54,17 @@ export function FaqsHero({ sx, ...other }) {
           />
 
           <m.div variants={varFade('inUp', { distance: 24 })}>
-            <TextField
-              fullWidth
-              placeholder="Search support..."
-              slotProps={{
-                input: {
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <Iconify icon="eva:search-fill" sx={{ color: 'text.disabled' }} />
-                    </InputAdornment>
-                  ),
-                },
+            <Typography 
+              variant="h5" 
+              sx={{ 
+                mt: 3, 
+                color: 'common.white',
+                maxWidth: 600,
+                opacity: 0.8
               }}
-              sx={{
-                mt: 5,
-                maxWidth: 360,
-                [`& .${outlinedInputClasses.root}`]: { bgcolor: 'common.white' },
-                [`& .${outlinedInputClasses.input}`]: { typography: 'subtitle1' },
-              }}
-            />
+            >
+              Find answers to common questions about semiconductor freelancing, chip design collaboration, and our VLSI professional network.
+            </Typography>
           </m.div>
         </Box>
       </Container>
