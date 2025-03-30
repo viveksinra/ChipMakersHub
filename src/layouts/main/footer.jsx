@@ -155,7 +155,10 @@ export function Footer({ sx, layoutQuery = 'md', ...other }) {
                           '&:hover': { 
                             color: 'primary.main',
                             textDecoration: 'none',
-                          }
+                          },
+                          wordBreak: 'break-word',
+                          overflowWrap: 'break-word',
+                          display: 'block'
                         }}
                       >
                         {link.name}
@@ -170,47 +173,7 @@ export function Footer({ sx, layoutQuery = 'md', ...other }) {
 
         <Divider sx={{ my: 5 }} />
 
-        {/* Newsletter Subscription */}
-        <Paper
-          elevation={2}
-          sx={{
-            p: 4,
-            mb: 5,
-            borderRadius: 2,
-            bgcolor: 'background.paper',
-          }}
-        >
-          <Grid container spacing={3} alignItems="center">
-            <Grid size={{ xs: 12, sm: 7 }}>
-              <Typography variant="h6" sx={{ mb: 1 }}>
-                Join the ChipMakersHub Newsletter
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Get the latest updates on VLSI opportunities and industry insights
-              </Typography>
-            </Grid>
-            <Grid size={{ xs: 12, sm: 5 }}>
-              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1}>
-                <TextField 
-                  fullWidth
-                  placeholder="Enter your email" 
-                  size="small" 
-                  sx={{ flexGrow: 1 }}
-                />
-                <Button 
-                  variant="contained" 
-                  color="primary"
-                  sx={{ 
-                    px: 3,
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  Subscribe
-                </Button>
-              </Stack>
-            </Grid>
-          </Grid>
-        </Paper>
+
 
         <Box
           sx={{
