@@ -88,7 +88,7 @@ export function MainLayout({ sx, cssVars, children, slotProps, layoutQuery = 'md
                 [theme.breakpoints.up(layoutQuery)]: { display: 'inline-flex' },
               })}
             >
-              Developers
+              For Programmers
             </Button>
             <Button
               variant="contained"
@@ -100,7 +100,7 @@ export function MainLayout({ sx, cssVars, children, slotProps, layoutQuery = 'md
                 [theme.breakpoints.up(layoutQuery)]: { display: 'inline-flex' },
               })}
             >
-              Company
+              For Company
             </Button>
           </Box>
         </>

@@ -85,7 +85,7 @@ export function NavMobile({ data, open, onClose, slots, sx }) {
             target="_blank"
             href={paths.minimalStore}
           >
-            Company
+            For Company
           </Button>
           <Button
             fullWidth
@@ -94,7 +94,7 @@ export function NavMobile({ data, open, onClose, slots, sx }) {
             target="_blank"
             href={paths.minimalStore}
           >
-            Developers
+            For Programmers
           </Button>
         </Box>
       )}

@@ -1,6 +1,6 @@
 import { CONFIG } from 'src/global-config';
+import { LegalView } from 'src/sections/legal/legal-view';
 
-import { LegalView } from 'src/sections/legal/view';
 
 // ----------------------------------------------------------------------
 

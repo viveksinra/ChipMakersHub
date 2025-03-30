@@ -1,81 +1,14 @@
-import { m } from 'framer-motion';
-
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
-
-import { varFade, MotionViewport } from 'src/components/animate';
-
-// ----------------------------------------------------------------------
-
-export function LegalContent({ contentType }) {
-  const isPrivacyPolicy = contentType === 'privacy-policy';
-  const content = isPrivacyPolicy ? PRIVACY_POLICY_CONTENT : TERMS_CONDITIONS_CONTENT;
-
-  return (
-    <Container component={MotionViewport} sx={{ py: { xs: 10, md: 15 } }}>
-      <Card sx={{ p: { xs: 3, md: 5 } }}>
-        {content.map((section, index) => (
-          <Box key={index} sx={{ mb: 5 }}>
-            <m.div variants={varFade('inUp')}>
-              <Typography variant="h4" sx={{ mb: 3 }}>
-                {section.title}
-              </Typography>
-            </m.div>
-
-            {section.paragraphs.map((paragraph, pIndex) => (
-              <m.div key={pIndex} variants={varFade('inUp')}>
-                <Typography variant="body1" sx={{ mb: 2 }}>
-                  {paragraph}
-                </Typography>
-              </m.div>
-            ))}
-
-            {section.subsections && (
-              <Stack spacing={3} sx={{ mt: 3, pl: 3 }}>
-                {section.subsections.map((subsection, sIndex) => (
-                  <Box key={sIndex}>
-                    <m.div variants={varFade('inUp')}>
-                      <Typography variant="h6" sx={{ mb: 1 }}>
-                        {subsection.title}
-                      </Typography>
-                    </m.div>
-
-                    {subsection.paragraphs.map((paragraph, pIndex) => (
-                      <m.div key={pIndex} variants={varFade('inUp')}>
-                        <Typography variant="body1" sx={{ mb: 1 }}>
-                          {paragraph}
-                        </Typography>
-                      </m.div>
-                    ))}
-                  </Box>
-                ))}
-              </Stack>
-            )}
-
-            {section.listItems && (
-              <Stack component="ul" spacing={1} sx={{ mt: 3, pl: 4 }}>
-                {section.listItems.map((item, lIndex) => (
-                  <m.div key={lIndex} variants={varFade('inUp')} component="li">
-                    <Typography variant="body1">{item}</Typography>
-                  </m.div>
-                ))}
-              </Stack>
-            )}
-
-            {index < content.length - 1 && <Divider sx={{ my: 5 }} />}
-          </Box>
-        ))}
-      </Card>
-    </Container>
-  );
-}
+import Alert from '@mui/material/Alert';
 
 // ----------------------------------------------------------------------
 
+// Define content arrays
 const PRIVACY_POLICY_CONTENT = [
   {
     title: 'Introduction',
@@ -338,4 +271,89 @@ const TERMS_CONDITIONS_CONTENT = [
       'If you have any questions about these Terms, please contact us at legal@chipmakershub.com.',
     ],
   },
-]; 
+];
+
+// Component definition
+export function LegalContent({ contentType }) {
+  console.log('LegalContent rendering with contentType:', contentType);
+  
+  // Log directly to check if arrays are defined
+  console.log('PRIVACY_POLICY_CONTENT defined:', !!PRIVACY_POLICY_CONTENT);
+  console.log('TERMS_CONDITIONS_CONTENT defined:', !!TERMS_CONDITIONS_CONTENT);
+  
+  const isPrivacyPolicy = contentType === 'privacy-policy';
+  const content = isPrivacyPolicy ? PRIVACY_POLICY_CONTENT : TERMS_CONDITIONS_CONTENT;
+
+  console.log('Selected content:', content);
+  console.log('Content array length:', content && content.length);
+  
+  // Check if content is undefined or empty
+  if (!content || !content.length) {
+    return (
+      <Container sx={{ py: { xs: 10, md: 15 } }}>
+        <Alert severity="error" sx={{ mb: 4 }}>
+          No content found for {contentType}. Please check the console for more information.
+        </Alert>
+        <Card sx={{ p: { xs: 3, md: 5 } }}>
+          <Typography variant="h4" color="error">Content Not Available</Typography>
+          <Typography variant="body1" sx={{ mt: 2 }}>
+            Unable to load the {isPrivacyPolicy ? 'Privacy Policy' : 'Terms and Conditions'} content.
+            Please try again later or contact support if this problem persists.
+          </Typography>
+        </Card>
+      </Container>
+    );
+  }
+
+  return (
+    <Container sx={{ py: { xs: 10, md: 15 } }}>
+      <Card sx={{ p: { xs: 3, md: 5 } }}>
+        {content.map((section, index) => (
+          <Box key={index} sx={{ mb: 5 }}>
+            <Typography variant="h4" sx={{ mb: 3 }}>
+              {section.title}
+            </Typography>
+
+            {section.paragraphs && section.paragraphs.map((paragraph, pIndex) => (
+              <Typography key={pIndex} variant="body1" sx={{ mb: 2 }}>
+                {paragraph}
+              </Typography>
+            ))}
+
+            {section.subsections && (
+              <Stack spacing={3} sx={{ mt: 3, pl: 3 }}>
+                {section.subsections.map((subsection, sIndex) => (
+                  <Box key={sIndex}>
+                    <Typography variant="h6" sx={{ mb: 1 }}>
+                      {subsection.title}
+                    </Typography>
+
+                    {subsection.paragraphs.map((paragraph, pIndex) => (
+                      <Typography key={pIndex} variant="body1" sx={{ mb: 1 }}>
+                        {paragraph}
+                      </Typography>
+                    ))}
+                  </Box>
+                ))}
+              </Stack>
+            )}
+
+            {section.listItems && (
+              <Stack component="ul" spacing={1} sx={{ mt: 3, pl: 4 }}>
+                {section.listItems.map((item, lIndex) => (
+                  <Box key={lIndex} component="li">
+                    <Typography variant="body1">{item}</Typography>
+                  </Box>
+                ))}
+              </Stack>
+            )}
+
+            {index < content.length - 1 && <Divider sx={{ my: 5 }} />}
+          </Box>
+        ))}
+      </Card>
+    </Container>
+  );
+}
+
+// ---------------------------------------------------------------------- 
