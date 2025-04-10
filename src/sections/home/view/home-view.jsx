@@ -45,17 +45,15 @@ export function HomeView() {
 
         <HomeForCompanies />
 
-        <HomeServices />
+        {/* <HomeServices /> */}
 
         <HomeWhyChooseUs />
         
-        <HomeTestimonials />
+        {/* <HomeTestimonials /> */}
 
-        <HomeJoinHub />
 
         <HomeFAQs />
 
-        <HomeContact />
       </Stack>
     </>
   );

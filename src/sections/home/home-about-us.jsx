@@ -8,7 +8,8 @@ import CardContent from '@mui/material/CardContent';
 
 import { Iconify } from 'src/components/iconify';
 import { SvgColor } from 'src/components/svg-color';
-import { varFade, MotionViewport } from 'src/components/animate';
+import { MotionViewport, m } from 'src/components/animate';
+import { varFade } from 'src/components/animate/variants/fade';
 
 // ----------------------------------------------------------------------
 
@@ -26,7 +27,7 @@ const offerings = [
     icon: 'tabler:device-laptop',
   },
   {
-    title: 'Expertise across ASIC, FPGA, and SoC design',
+    title: 'Expertise in full-spectrum ASIC, FPGA, and SoC development',
     icon: 'mdi:chip',
   },
 ];
@@ -50,30 +51,77 @@ export function HomeAboutUs() {
             textAlign: 'center',
           }}
         >
-          <Typography
-            variant="h2"
-            sx={{ mb: 3 }}
-          >
-            About Us
-          </Typography>
-
-          <Typography
-            sx={{
-              mx: 'auto',
-              maxWidth: 800,
-              color: 'text.secondary',
+          <m.div
+            animate={{
+              y: [0, -10, 0],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              repeatType: 'loop',
             }}
           >
-            At Chip Makers Hub, we empower the global VLSI community by providing a seamless freelancing marketplace. 
-            Our mission is to revolutionize chip design, verification, and semiconductor development by connecting 
-            top-tier freelancers with companies seeking flexible and efficient hiring solutions.
-          </Typography>
+            <Typography
+              variant="h2"
+              sx={{ mb: 3 }}
+            >
+              About Us
+            </Typography>
+          </m.div>
+
+          <m.div variants={varFade('inUp')}>
+            <Box 
+              sx={{ 
+                position: 'relative',
+                overflow: 'hidden',
+                mx: 'auto',
+                maxWidth: 800,
+              }}
+            >
+              <Typography
+                sx={{
+                  color: 'text.secondary',
+                }}
+              >
+               At Chip Makers Hub, we empower the global semiconductor industry with a seamless freelancing marketplace tailored for VLSI.
+      Our mission is to revolutionize chip design by connecting top-tier freelance engineers with companies seeking flexible, efficient, and expert-driven hiring solutions.
+              </Typography>
+              
+              {/* Shine effect overlay */}
+              <m.div
+                animate={{
+                  x: ['-100%', '200%'],
+                  opacity: [0, 0.5, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatDelay: 4,
+                }}
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '50%',
+                  height: '100%',
+                  background: 'linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%)',
+                  transform: 'skewX(-20deg)',
+                  zIndex: 1,
+                }}
+              />
+            </Box>
+          </m.div>
         </Box>
 
         <Grid container spacing={4}>
-          {offerings.map((item) => (
+          {offerings.map((item, index) => (
             <Grid key={item.title} item xs={12} sm={6} md={3}>
-              <OfferingCard item={item} />
+              <m.div
+                variants={varFade('inUp')}
+                transition={{ delay: index * 0.1 }}
+              >
+                <OfferingCard item={item} />
+              </m.div>
             </Grid>
           ))}
         </Grid>
@@ -89,16 +137,51 @@ function OfferingCard({ item }) {
   
   return (
     <Card
+      component={m.div}
+      whileHover={{ 
+        scale: 1.05,
+        transition: { duration: 0.3 }
+      }}
       sx={{
         textAlign: 'center',
         boxShadow: (theme) => theme.customShadows.z8,
-        height: '100%',
+        height: 280,
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
+        overflow: 'hidden',
         '&:hover': {
           boxShadow: (theme) => theme.customShadows.z24,
           transition: theme.transitions.create('box-shadow'),
         },
       }}
     >
+      <Box
+        component={m.div}
+        animate={{
+          background: [
+            `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.primary.light}, ${theme.palette.primary.main})`,
+            `linear-gradient(90deg, ${theme.palette.primary.light}, ${theme.palette.primary.main}, ${theme.palette.primary.light})`,
+            `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.primary.light}, ${theme.palette.primary.main})`,
+          ],
+          backgroundSize: ['200% 100%', '200% 100%', '200% 100%'],
+          backgroundPosition: ['0% center', '100% center', '0% center'],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          repeatType: 'loop',
+        }}
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 6,
+          zIndex: 1,
+        }}
+      />
+
       <CardContent
         sx={{
           py: 5,
@@ -106,21 +189,53 @@ function OfferingCard({ item }) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          justifyContent: 'center',
+          height: '100%',
         }}
       >
-        <Box
-          sx={{
-            mb: 3,
-            p: 2.5,
-            borderRadius: '50%',
-            bgcolor: (theme) => alpha(theme.palette.primary.main, 0.08),
-            color: 'primary.main',
+        <m.div
+          whileHover={{ 
+            scale: 1.2,
+            rotate: 10,
+            transition: { duration: 0.2 }
           }}
         >
-          <Iconify icon={item.icon} width={36} />
-        </Box>
+          <Box
+            component={m.div}
+            animate={{
+              boxShadow: [
+                `0 0 4px 2px ${alpha(theme.palette.primary.main, 0.2)}`,
+                `0 0 8px 4px ${alpha(theme.palette.primary.main, 0.4)}`,
+                `0 0 4px 2px ${alpha(theme.palette.primary.main, 0.2)}`
+              ]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              repeatType: 'loop'
+            }}
+            sx={{
+              mb: 3,
+              p: 2.5,
+              borderRadius: '50%',
+              bgcolor: (theme) => alpha(theme.palette.primary.main, 0.08),
+              color: 'primary.main',
+            }}
+          >
+            <Iconify icon={item.icon} width={36} />
+          </Box>
+        </m.div>
 
-        <Typography variant="subtitle1" sx={{ mb: 1 }}>
+        <Typography 
+          variant="subtitle1" 
+          sx={{ 
+            width: '100%',
+            height: 60,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
           {item.title}
         </Typography>
       </CardContent>

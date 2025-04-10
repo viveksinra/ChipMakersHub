@@ -6,11 +6,40 @@ alwaysApply: true
 
 # Your rule content
 
-Alwasy use Javascript
-Always use Material Ui
-first check the package in [package.json](mdc:package.json) then if neceesary install a package
-first check the components folder for various component, use it. if not found then create a new component in mycomponent folder
+-Alwasy use Javascript
+-Always use Material Ui
+-Always Use theme for color (import the color) like (theme) => alpha(theme.palette.primary.main, 0.08),
+-first check the package in [package.json](mdc:package.json) then if neceesary install a package
+-first check the components folder for various component, use it. if not found then create a new component in mycomponent folder
+-for icon use react icon
+-for animation chip animation use - lottie-react 
+- always try to add animation where-ever possible use these packages -  "framer-motion": "^11.15.0",
+    "lottie-react": "^2.4.1",
+- use frammer motion 
+// Pulse animation for buttons/elements
 
-for icon use react icon
+
+// Floating animation for cards/elements
+
+
+// Spin animation for icons
+
+
+// Shimmer effect for loading states
+
+
+// Animated button component
+
+
+// Lottie animation component
+
+
+// Animated text reveal effect
+
+// Infinite marquee animation for text
+
+
+// Background gradient animation
+    
 
 

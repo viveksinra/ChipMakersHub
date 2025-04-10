@@ -19,7 +19,8 @@ import { _mock } from 'src/_mock';
 import { CONFIG } from 'src/global-config';
 
 import { Iconify } from 'src/components/iconify';
-import { varFade, MotionContainer } from 'src/components/animate';
+import { MotionContainer } from 'src/components/animate';
+import { varFade } from 'src/components/animate/variants/fade';
 
 import { HeroBackground } from './components/hero-background';
 
@@ -103,16 +104,104 @@ export function HomeHero({ sx, ...other }) {
 
   const renderText = () => (
     <m.div {...motionProps}>
-      <Typography
-        variant="body2"
-        sx={{
-          mx: 'auto',
-          [theme.breakpoints.up(smKey)]: { whiteSpace: 'pre' },
-          [theme.breakpoints.up(lgKey)]: { fontSize: 20, lineHeight: '36px' },
-        }}
-      >
-        {`Welcome to Chip Makers Hub, your one-stop VLSI freelancing platform. \nWe connect companies with skilled semiconductor professionals specializing in RTL design, verification, DFT, physical design, and more.`}
-      </Typography>
+      <Stack spacing={3} sx={{ textAlign: 'center' }}>
+        <m.div
+          whileHover={{ scale: 1.02 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Typography
+            variant="body2"
+            sx={{
+              mx: 'auto',
+              px: 3,
+              fontWeight: 'bold',
+              position: 'relative',
+              display: 'inline-block',
+              color: (theme) => theme.palette.primary.darker,
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                zIndex: -1,
+              },
+              [theme.breakpoints.up(smKey)]: { whiteSpace: 'pre' },
+              [theme.breakpoints.up(lgKey)]: { fontSize: 20, lineHeight: '36px' },
+            }}
+          >
+            Welcome to Chip Makers Hub — the premier platform for VLSI freelancing excellence.
+          </Typography>
+        </m.div>
+
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          whileHover={{ scale: 1.02 }}
+        >
+          <Typography
+            variant="body2"
+            sx={{
+              mx: 'auto',
+              [theme.breakpoints.up(smKey)]: { whiteSpace: 'pre-line' },
+              [theme.breakpoints.up(lgKey)]: { fontSize: 20, lineHeight: '36px' },
+            }}
+          >
+            We connect forward-thinking companies with top-tier semiconductor professionals specializing in RTL design, verification, DFT, physical design, and the full spectrum of chip development services.
+          </Typography>
+        </m.div>
+
+        <m.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          whileHover={{ scale: 1.02 }}
+        >
+          <m.div
+            style={{
+              display: 'inline-block',
+              borderRadius: 8,
+              position: 'relative',
+              padding: 2,
+            }}
+            animate={{ 
+              background: [
+                'linear-gradient(90deg, #FFD700, #FFA500, #FF8C00, #FFA500, #FFD700)',
+                'linear-gradient(180deg, #FFD700, #FFA500, #FF8C00, #FFA500, #FFD700)',
+                'linear-gradient(270deg, #FFD700, #FFA500, #FF8C00, #FFA500, #FFD700)',
+                'linear-gradient(360deg, #FFD700, #FFA500, #FF8C00, #FFA500, #FFD700)',
+              ]
+            }}
+            transition={{ 
+              duration: 6,
+              repeat: Infinity,
+              repeatType: "loop"
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{
+                mx: 'auto',
+                px: 3,
+                py: 1.5,
+                fontWeight: 'bold',
+                borderRadius: 1.5,
+                display: 'block',
+                backgroundColor: (theme) => theme.palette.background.paper,
+                color: (theme) => theme.palette.warning.darker,
+                [theme.breakpoints.up(smKey)]: { whiteSpace: 'pre' },
+                [theme.breakpoints.up(lgKey)]: { fontSize: 20, lineHeight: '36px' },
+              }}
+            >
+              Power your projects with the industry's most trusted freelance VLSI talent.
+            </Typography>
+          </m.div>
+        </m.div>
+      </Stack>
     </m.div>
   );
 
@@ -208,7 +297,7 @@ export function HomeHero({ sx, ...other }) {
     >
       <Box
         component={m.div}
-        style={{ opacity }}
+        style={{ opacity, }}
         sx={{
           width: 1,
           display: 'flex',

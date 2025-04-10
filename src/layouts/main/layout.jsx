@@ -78,8 +78,6 @@ export function MainLayout({ sx, cssVars, children, slotProps, layoutQuery = 'md
             {/** @slot Purchase button */}
             <Button
               variant="outlined"
-              rel="noopener"
-              target="_blank"
               href={paths.forProgrammers}
               sx={(theme) => ({
                 display: 'none',
@@ -92,8 +90,6 @@ export function MainLayout({ sx, cssVars, children, slotProps, layoutQuery = 'md
             </Button>
             <Button
               variant="contained"
-              rel="noopener"
-              target="_blank"
               href={paths.forCompanies}
               sx={(theme) => ({
                 display: 'none',

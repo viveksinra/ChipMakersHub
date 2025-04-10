@@ -59,8 +59,7 @@ const LINKS = [
   },
 ];
 
-// VLSI specialty tags
-const SPECIALTY_TAGS = ['RTL Design', 'Verification', 'DFT', 'Physical Design', 'SoC', 'FPGA', 'Analog'];
+
 
 // ----------------------------------------------------------------------
 
@@ -94,19 +93,7 @@ export function Footer({ sx, layoutQuery = 'md', ...other }) {
                 specializing in RTL design, verification, DFT, physical design, and more.
               </Typography>
               
-              <Box>
-                <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-                  {SPECIALTY_TAGS.map((tag) => (
-                    <Chip 
-                      key={tag} 
-                      label={tag} 
-                      size="small" 
-                      variant="outlined" 
-                      sx={{ m: 0.5 }} 
-                    />
-                  ))}
-                </Stack>
-              </Box>
+
 
               <Stack direction="row" spacing={1}>
                 {_socials.map((social) => (

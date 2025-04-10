@@ -1,3 +1,5 @@
+import { m } from 'framer-motion';
+
 export * from './variants';
 
 export * from './animate-text';
@@ -13,3 +15,5 @@ export * from './scroll-progress';
 export * from './animate-count-up';
 
 export * from './motion-container';
+
+export { m };
