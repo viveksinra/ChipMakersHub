@@ -28,11 +28,11 @@ export const primaryColorPresets = {
     contrastText: '#FFFFFF',
   },
   preset3: {
-    lighter: '#CDE9FD',
-    light: '#6BB1F8',
-    main: '#0C68E9',
-    dark: '#063BA7',
-    darker: '#021D6F',
+    lighter: '#C8FAD6',
+    light: '#5BE49B',
+    main: '#00A76F',
+    dark: '#007867',
+    darker: '#004B50',
     contrastText: '#FFFFFF',
   },
   preset4: {

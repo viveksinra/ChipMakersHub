@@ -94,7 +94,7 @@ export function NavMobile({ data, open, onClose, slots, sx }) {
             target="_blank"
             href={paths.forProgrammers}
           >
-            For Programmers
+            For Freelancers
           </Button>
         </Box>
       )}

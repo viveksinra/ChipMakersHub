@@ -44,7 +44,7 @@ export function ProgrammerHero({ sx, ...other }) {
           <AnimateText
             component="h1"
             variant="h1"
-            textContent={['For', 'Programmers']}
+            textContent={['For', 'Freelancers']}
             variants={varFade('inRight', { distance: 24 })}
             sx={{
               color: 'common.white',

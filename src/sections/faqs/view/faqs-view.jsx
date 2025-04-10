@@ -191,7 +191,7 @@ export function FaqsView() {
             }}
           >
             <Tab label="General" />
-            <Tab label="For Programmers" />
+            <Tab label="For Freelancers" />
             <Tab label="For Companies" />
           </Tabs>
         </Box>

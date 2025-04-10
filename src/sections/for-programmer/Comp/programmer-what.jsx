@@ -71,7 +71,7 @@ export function ProgrammerWhat({ sx, ...other }) {
 
           <Grid size={{ xs: 12, md: 6, lg: 5 }}>
             <Typography component={m.h2} variants={varFade('inRight')} variant="h2" sx={{ mb: 3 }}>
-              What We Offer to Programmers
+              What We Offer to Freelancers
             </Typography>
 
             <Typography

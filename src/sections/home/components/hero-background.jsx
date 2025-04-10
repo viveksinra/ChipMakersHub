@@ -9,7 +9,7 @@ import { CONFIG } from 'src/global-config';
 
 import { MotionContainer } from 'src/components/animate';
 
-import { Dots, Lines, Texts, Circles, PlusIcon } from './hero-svg';
+import { Dots, Lines, Texts, Circles, PlusIcon, ChipLines } from './hero-svg';
 
 // ----------------------------------------------------------------------
 
@@ -30,22 +30,27 @@ export function HeroBackground({ sx, ...other }) {
             '--hero-line-stroke-width': 1,
             '--hero-line-stroke-color': varAlpha(theme.vars.palette.grey['500Channel'], 0.32),
             ...theme.applyStyles('dark', {
-              '--hero-line-stroke-color': varAlpha(theme.vars.palette.grey['600Channel'], 0.16),
+              '--hero-line-stroke-color': varAlpha(theme.vars.palette.grey['600Channel'], 0.32),
             }),
             /* text */
             '--hero-text-stroke-width': 1,
             '--hero-text-stroke-color': varAlpha(theme.vars.palette.grey['500Channel'], 0.24),
             ...theme.applyStyles('dark', {
-              '--hero-text-stroke-color': varAlpha(theme.vars.palette.grey['600Channel'], 0.12),
+              '--hero-text-stroke-color': varAlpha(theme.vars.palette.grey['600Channel'], 0.32),
             }),
             /* circle */
             '--hero-circle-stroke-width': 1,
             '--hero-circle-stroke-color': varAlpha(theme.vars.palette.grey['500Channel'], 0.48),
             ...theme.applyStyles('dark', {
-              '--hero-circle-stroke-color': varAlpha(theme.vars.palette.grey['600Channel'], 0.24),
+              '--hero-circle-stroke-color': varAlpha(theme.vars.palette.primary.mainChannel, 0.7),
             }),
             /* plus */
             '--hero-plus-stroke-color': theme.vars.palette.text.disabled,
+            /* chip */
+            '--hero-chip-glow-color': theme.vars.palette.primary.main,
+            ...theme.applyStyles('dark', {
+              '--hero-chip-glow-color': theme.vars.palette.primary.light,
+            }),
             top: 0,
             left: 0,
             width: 1,
@@ -77,15 +82,15 @@ export function HeroBackground({ sx, ...other }) {
               cx="0"
               cy="0"
               r="1"
-              gradientTransform="matrix(720 0 0 420 720 560)"
+              gradientTransform="matrix(720 0 0 500 720 540)"
               gradientUnits="userSpaceOnUse"
             >
               <stop offset="0%" stopColor="#FFFFFF" stopOpacity={1} />
-              <stop offset="100%" stopColor="#FFFFFF" stopOpacity={0.08} />
+              <stop offset="100%" stopColor="#FFFFFF" stopOpacity={0.04} />
             </radialGradient>
 
             <mask id="mask_id">
-              <ellipse cx="50%" cy="50%" rx="50%" ry="36%" fill="url(#mask_gradient_id)" />
+              <ellipse cx="50%" cy="50%" rx="70%" ry="60%" fill="url(#mask_gradient_id)" />
             </mask>
           </defs>
 
@@ -93,6 +98,7 @@ export function HeroBackground({ sx, ...other }) {
             <Circles />
             <PlusIcon />
             <Lines strokeCount={strokeCount} />
+            <ChipLines />
           </g>
         </Box>
 
