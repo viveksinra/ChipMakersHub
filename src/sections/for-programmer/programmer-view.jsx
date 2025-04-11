@@ -12,7 +12,7 @@ export function ProgrammerView() {
   return (
     <>
 <ProgrammerHero />
-<ProgrammerWhat />
+{/* <ProgrammerWhat /> */}
 <ProgrammerVision />
     </>
   );
