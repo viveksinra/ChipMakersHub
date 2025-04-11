@@ -58,7 +58,7 @@ export function HomeForCompanies() {
   return (
     <Box
       sx={{
-        py: { xs: 10, md: 15 },
+        py: { xs: 5, md: 8 },
         bgcolor: (theme) => alpha(theme.palette.grey[500], 0.04),
         position: 'relative',
         overflow: 'hidden',
@@ -88,10 +88,11 @@ export function HomeForCompanies() {
                 >
                   <Image
                     alt="Semiconductor Company"
-                    src="/myAssets/chip3.jpg"
+                    src="/myAssets/gif/portrait/chip3.gif"
                     sx={{
                       width: '100%',
                       height: 'auto',
+                      objectFit: 'cover',
                     }}
                   />
                 </m.div>
@@ -110,7 +111,7 @@ export function HomeForCompanies() {
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <Stack spacing={4}>
+            <Stack spacing={3}>
               <m.div
                 variants={varFade('inRight')}
                 initial="initial"
@@ -143,8 +144,8 @@ export function HomeForCompanies() {
                     fontWeight: 500,
                   }}
                 >
-                  Looking for skilled VLSI professionals for your project? Chip Makers Hub offers access to a global 
-                  network of expert freelancers in the semiconductor industry.
+                  Need top-tier VLSI experts for your next project?
+                  ChipMakersHub connects you with a global network of pre-vetted semiconductor freelancers ready to contribute across the entire chip design lifecycle — from RTL to physical design, FPGA to AMS, and beyond.
                 </Typography>
               </m.div>
               
@@ -166,7 +167,7 @@ export function HomeForCompanies() {
                 </Typography>
               </m.div>
 
-              <Grid container spacing={2}>
+              <Grid container spacing={1.5}>
                 {hiringSolutions.map((solution, index) => (
                   <Grid item xs={12} sm={6} key={solution.title}>
                     <m.div
@@ -207,6 +208,12 @@ export function HomeForCompanies() {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
+                                animation: 'pulse 2s infinite',
+                                '@keyframes pulse': {
+                                  '0%': { transform: 'scale(1)' },
+                                  '50%': { transform: 'scale(1.1)' },
+                                  '100%': { transform: 'scale(1)' }
+                                }
                               }}
                             >
                               <Iconify icon={solution.icon} width={24} />
@@ -223,6 +230,32 @@ export function HomeForCompanies() {
               </Grid>
 
               <Box sx={{ mt: 3 }}>
+                <m.div
+                  variants={varFade('inUp')}
+                  initial="initial"
+                  animate="animate"
+                  transition={{ delay: 0.8 }}
+                >
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      mb: 3,
+                      textAlign: 'center',
+                      background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.success.main} 100%)`,
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      fontWeight: 'bold',
+                      animation: 'pulse 2s infinite',
+                      '@keyframes pulse': {
+                        '0%': { opacity: 0.8 },
+                        '50%': { opacity: 1 },
+                        '100%': { opacity: 0.8 }
+                      }
+                    }}
+                  >
+                    Scale faster. Hire smarter. Tap into on-demand expertise — when and where you need it.
+                  </Typography>
+                </m.div>
                 <m.div
                   variants={varFade('inUp')}
                   initial="initial"

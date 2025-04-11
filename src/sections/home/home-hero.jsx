@@ -274,7 +274,7 @@ export function HomeHero({ sx, ...other }) {
           >
             <Button
               component={RouterLink}
-              href={paths.forProgrammers}
+              href={paths.forCompanies}
               color="inherit"
               size="large"
               variant="contained"
@@ -316,7 +316,7 @@ export function HomeHero({ sx, ...other }) {
                   default: { duration: 0.2 }
                 }}
               >
-                Join as a Programmer
+                         Join as a Company
               </m.span>
             </Button>
           </m.div>
@@ -352,7 +352,7 @@ export function HomeHero({ sx, ...other }) {
               </m.div>
             }
             component={RouterLink}
-            href={paths.forCompanies}
+            href={paths.forProgrammers}
             sx={{
               position: 'relative',
               '&::after': {
@@ -379,7 +379,8 @@ export function HomeHero({ sx, ...other }) {
               whileHover={{ y: -3 }}
               transition={{ duration: 0.2 }}
             >
-              Join as a Company
+                              Join as a Freelancer
+
             </m.span>
           </Button>
         </m.div>
