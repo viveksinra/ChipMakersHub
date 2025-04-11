@@ -1,5 +1,6 @@
 import { m } from 'framer-motion';
 import { varAlpha } from 'minimal-shared/utils';
+import { alpha } from '@mui/material/styles';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -17,16 +18,23 @@ export function ContactHero({ sx, ...other }) {
       component="section"
       sx={[
         (theme) => ({
-          ...theme.mixins.bgGradient({
-            images: [
-              `linear-gradient(0deg, ${varAlpha(theme.vars.palette.grey['900Channel'], 0.8)}, ${varAlpha(theme.vars.palette.grey['900Channel'], 0.8)})`,
-              `url(${CONFIG.assetsDir}/assets/images/contact/hero.webp)`,
-            ],
-          }),
+          backgroundImage: `url(/myAssets/gif/landscape/chip.gif)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
           overflow: 'hidden',
           height: { md: 480 },
           position: 'relative',
           py: { xs: 10, md: 0 },
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: alpha(theme.palette.grey[900], 0.8),
+          }
         }),
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}

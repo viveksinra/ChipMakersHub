@@ -73,7 +73,7 @@ export function AboutHero({ sx, ...other }) {
             </Typography>
           </m.div>
 
-          <m.div variants={varFade('inUp', { distance: 24 })}>
+          {/* <m.div variants={varFade('inUp', { distance: 24 })}>
             <Button
               size="large"
               variant="contained"
@@ -91,7 +91,7 @@ export function AboutHero({ sx, ...other }) {
             >
               Learn More
             </Button>
-          </m.div>
+          </m.div> */}
         </Box>
       </Container>
     </Box>

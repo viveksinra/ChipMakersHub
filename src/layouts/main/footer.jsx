@@ -36,11 +36,13 @@ const LINKS = [
   {
     headline: 'Services',
     children: [
-      { name: 'Front-End Design', href: '#' },
-      { name: 'Physical Design', href: '#' },
-      { name: 'DFT Services', href: '#' },
-      { name: 'FPGA & Embedded', href: '#' },
-      { name: 'ASIC Design', href: '#' },
+      { name: 'ASIC & FPGA Design', href: '#' },
+      { name: 'RTL Development & Verification', href: '#' },
+      { name: 'DFT (Design for Testability)', href: '#' },
+      { name: 'Physical Design & Signoff', href: '#' },
+      // { name: 'Analog & Mixed-Signal Design', href: '#' },
+      // { name: 'Embedded Systems & SoC Development', href: '#' },
+      // { name: 'Semiconductor Consulting & Training', href: '#' },
     ],
   },
   { 

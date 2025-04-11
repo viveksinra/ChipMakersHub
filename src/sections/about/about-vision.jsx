@@ -107,7 +107,8 @@ export function AboutVision({ sx, ...other }) {
       component="section"
       sx={[
         () => ({
-          pb: 15,
+          pb: 5,
+          pt: 5,
           position: 'relative',
           bgcolor: 'background.neutral',
           '&::before': {
@@ -137,23 +138,23 @@ export function AboutVision({ sx, ...other }) {
           }}
         >
           {renderImage()}
-          {renderLogos()}
+          {/* {renderLogos()} */}
 
           <Fab sx={{ position: 'absolute', zIndex: 9 }}>
             <Iconify icon="solar:play-broken" width={24} />
           </Fab>
         </Box>
 
-        <Typography
+        {/* <Typography
           component={m.h6}
           variants={varFade('inUp')}
           variant="h3"
           sx={{ textAlign: 'center', maxWidth: 800, mx: 'auto' }}
         >
           Connecting the global VLSI community through a seamless freelancing marketplace
-        </Typography>
+        </Typography> */}
 
-        {renderServices()}
+        {/* {renderServices()} */}
       </Container>
     </Box>
   );

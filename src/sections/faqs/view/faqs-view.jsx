@@ -138,42 +138,7 @@ export function FaqsView() {
       <FaqsHero />
       <Container component="section" sx={{ pb: 10, position: 'relative', pt: { xs: 10, md: 15 } }}>
         
-        {/* Category cards for quick navigation */}
-        <Box
-          sx={{
-            gap: 3,
-            display: 'grid',
-            gridTemplateColumns: { xs: 'repeat(1, 1fr)', sm: 'repeat(3, 1fr)' },
-            mb: 5,
-          }}
-        >
-          {CATEGORIES.map((category, index) => (
-            <Box
-              key={category.label}
-              onClick={() => handleCategoryClick(category.tab)}
-              sx={{
-                p: 3,
-                textAlign: 'center',
-                borderRadius: 2,
-                cursor: 'pointer',
-                boxShadow: (theme) => theme.customShadows.z8,
-                bgcolor: currentTab === category.tab ? 'primary.lighter' : 'background.paper',
-                transition: (theme) => theme.transitions.create('all'),
-                '&:hover': {
-                  bgcolor: 'primary.lighter',
-                },
-              }}
-            >
-              <Box
-                component="img"
-                src={category.icon}
-                alt={category.label}
-                sx={{ width: 80, height: 80, mx: 'auto', mb: 2 }}
-              />
-              <Typography variant="subtitle1">{category.label}</Typography>
-            </Box>
-          ))}
-        </Box>
+  
 
         <Typography variant="h3" sx={{ my: { xs: 5, md: 5 } }}>
           Frequently asked questions

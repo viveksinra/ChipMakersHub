@@ -35,44 +35,7 @@ export function ContactInfo() {
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <Typography variant="h5">Office Locations</Typography>
-
-        <InfoItem
-          icon="solar:marker-bold"
-          title="Global Headquarters"
-          content={['123 Silicon Valley Way', 'San Jose, CA 95134', 'United States']}
-        />
-
-        <InfoItem
-          icon="solar:marker-bold"
-          title="EMEA Office"
-          content={['Frankfurter Allee 27', '10247 Berlin', 'Germany']}
-        />
-
-        <InfoItem
-          icon="solar:marker-bold"
-          title="APAC Office"
-          content={['10 Anson Road #10-01', 'International Plaza', 'Singapore 079903']}
-        />
-
-        <Divider sx={{ borderStyle: 'dashed' }} />
-
-        <Typography variant="h5">Connect With Us</Typography>
-
-        <Stack direction="row" spacing={2}>
-          <IconButton color="primary">
-            <Iconify icon="mdi:linkedin" width={24} />
-          </IconButton>
-          <IconButton color="primary">
-            <Iconify icon="mdi:twitter" width={24} />
-          </IconButton>
-          <IconButton color="primary">
-            <Iconify icon="mdi:facebook" width={24} />
-          </IconButton>
-          <IconButton color="primary">
-            <Iconify icon="mdi:youtube" width={24} />
-          </IconButton>
-        </Stack>
+      
       </Stack>
     </Card>
   );

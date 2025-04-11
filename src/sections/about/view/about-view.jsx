@@ -13,13 +13,13 @@ export function AboutView() {
     <>
       <AboutHero />
 
-      <AboutWhat />
+      {/* <AboutWhat /> */}
 
       <AboutVision />
 
-      <AboutTeam />
+      {/* <AboutTeam /> */}
 
-      <AboutTestimonials />
+      {/* <AboutTestimonials /> */}
     </>
   );
 }
