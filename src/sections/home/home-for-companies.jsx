@@ -15,6 +15,7 @@ import { RouterLink } from 'src/routes/components';
 import { Image } from 'src/components/image';
 import { Iconify } from 'src/components/iconify';
 import { MotionViewport, varFade } from 'src/components/animate';
+import { ParticleBackground } from 'src/components/background/particle-background';
 
 // ----------------------------------------------------------------------
 
@@ -63,34 +64,7 @@ export function HomeForCompanies() {
         overflow: 'hidden',
       }}
     >
-      {/* Decorative floating particles */}
-      {[...Array(6)].map((_, index) => (
-        <m.div
-          key={index}
-          animate={{
-            y: [0, -(15 + index * 2), 0],
-            opacity: [0.2, 0.8, 0.2],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          style={{
-            position: 'absolute',
-            width: theme.spacing(index % 3 ? 8 : 12),
-            height: theme.spacing(index % 3 ? 8 : 12),
-            borderRadius: '50%',
-            top: `${10 + (index * 10)}%`,
-            left: `${10 + (index * 15)}%`,
-            background: alpha(
-              index % 2 ? theme.palette.primary.main : theme.palette.success.main, 
-              0.05
-            ),
-            zIndex: 0,
-          }}
-        />
-      ))}
+      <ParticleBackground count={30} />
 
       <Container component={MotionViewport}>
         <Grid container spacing={8} direction="row-reverse" alignItems="center">
@@ -301,7 +275,19 @@ export function HomeForCompanies() {
                         }
                       }}
                     >
-                      Hire a Freelancer
+                      <m.span
+                        animate={{
+                          x: [0, 5, 0],
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          repeatType: "loop"
+                        }}
+                        style={{ display: 'inline-flex', alignItems: 'center' }}
+                      >
+                        Hire a Freelancer
+                      </m.span>
                     </Button>
                   </m.div>
                 </m.div>

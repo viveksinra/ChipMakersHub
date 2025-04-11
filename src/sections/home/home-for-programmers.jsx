@@ -15,6 +15,7 @@ import { RouterLink } from 'src/routes/components';
 import { Image } from 'src/components/image';
 import { Iconify } from 'src/components/iconify';
 import { MotionViewport, varFade } from 'src/components/animate';
+import { ParticleBackground } from 'src/components/background/particle-background';
 
 // ----------------------------------------------------------------------
 
@@ -55,22 +56,7 @@ export function HomeForProgrammers() {
         overflow: 'hidden',
       }}
     >
-      {/* Background gradient effect */}
-      <Box
-        component={m.div}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: `linear-gradient(120deg, ${alpha(theme.palette.primary.lighter, 0.1)}, ${alpha(theme.palette.primary.main, 0.05)})`,
-          zIndex: -1,
-        }}
-      />
+      <ParticleBackground count={30} />
 
       <Container component={MotionViewport}>
         <Grid container spacing={8} alignItems="center">
