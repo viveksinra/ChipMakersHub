@@ -34,9 +34,9 @@ export function HeroBackground({ sx, ...other }) {
             }),
             /* text */
             '--hero-text-stroke-width': 1,
-            '--hero-text-stroke-color': varAlpha(theme.vars.palette.grey['500Channel'], 0.24),
+            '--hero-text-stroke-color': varAlpha(theme.vars.palette.grey['500Channel'], 0.94),
             ...theme.applyStyles('dark', {
-              '--hero-text-stroke-color': varAlpha(theme.vars.palette.grey['600Channel'], 0.32),
+              '--hero-text-stroke-color': varAlpha(theme.vars.palette.grey['600Channel'], 0.74),
             }),
             /* circle */
             '--hero-circle-stroke-width': 1,

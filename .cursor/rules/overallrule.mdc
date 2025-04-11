@@ -16,6 +16,7 @@ alwaysApply: true
 - always try to add animation where-ever possible use these packages -  "framer-motion": "^11.15.0",
     "lottie-react": "^2.4.1",
 - use frammer motion 
+ don't write like this - variants={varFade().inRight}, instead write like this    variants={varFade('inRight')}
 // Pulse animation for buttons/elements
 
 

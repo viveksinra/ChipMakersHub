@@ -75,10 +75,10 @@ export function HomeHero({ sx, ...other }) {
           },
         ]}
       >
-        <Box component="span" sx={{ width: 1, opacity: 0.24 }}>
-          Where the world connects
+        <Box component="span" sx={{ width: 1, opacity: 0.74 }}>
+          Hire the world's top
         </Box>
-        for 
+        {' '}
         <Box
           component={m.span}
           animate={{ backgroundPosition: '200% center' }}
@@ -96,7 +96,7 @@ export function HomeHero({ sx, ...other }) {
             ml: { xs: 0.75, md: 1, xl: 1.5 },
           }}
         >
-          VLSI work
+          VLSI and Embedded systems freelancers
         </Box>
       </Box>
     </m.div>
@@ -119,7 +119,16 @@ export function HomeHero({ sx, ...other }) {
               fontWeight: 'bold',
               position: 'relative',
               display: 'inline-block',
-              color: (theme) => theme.palette.primary.darker,
+              color: (theme) => theme.palette.mode === 'dark' ? theme.palette.primary.light : theme.palette.primary.darker,
+              background: (theme) => theme.palette.mode === 'dark' ? `linear-gradient(90deg, ${theme.palette.background.default}, ${theme.palette.background.paper}, ${theme.palette.background.default})` : 'transparent',
+              backgroundSize: '200% 100%',
+              animation: 'shine 3s infinite linear',
+              borderRadius: 1,
+              boxShadow: (theme) => theme.palette.mode === 'dark' ? `0 0 10px ${theme.palette.primary.main}` : 'none',
+              '@keyframes shine': {
+                '0%': { backgroundPosition: '0% 0%' },
+                '100%': { backgroundPosition: '200% 0%' },
+              },
               '&::before': {
                 content: '""',
                 position: 'absolute',
@@ -133,7 +142,24 @@ export function HomeHero({ sx, ...other }) {
               [theme.breakpoints.up(lgKey)]: { fontSize: 20, lineHeight: '36px' },
             }}
           >
-            Welcome to Chip Makers Hub — the premier platform for VLSI freelancing excellence.
+            <m.span
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: 1,
+                textShadow: [
+                  '0 0 5px rgba(255,255,255,0)',
+                  '0 0 20px rgba(255,255,255,0.5)',
+                  '0 0 5px rgba(255,255,255,0)'
+                ]
+              }}
+              transition={{ 
+                duration: 2,
+                repeat: Infinity,
+                repeatType: 'mirror'
+              }}
+            >
+              Welcome to Chip Makers Hub — the premier platform for VLSI freelancing excellence.
+            </m.span>
           </Typography>
         </m.div>
 
@@ -155,52 +181,7 @@ export function HomeHero({ sx, ...other }) {
           </Typography>
         </m.div>
 
-        <m.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          whileHover={{ scale: 1.02 }}
-        >
-          <m.div
-            style={{
-              display: 'inline-block',
-              borderRadius: 8,
-              position: 'relative',
-              padding: 2,
-            }}
-            animate={{ 
-              background: [
-                'linear-gradient(90deg, #FFD700, #FFA500, #FF8C00, #FFA500, #FFD700)',
-                'linear-gradient(180deg, #FFD700, #FFA500, #FF8C00, #FFA500, #FFD700)',
-                'linear-gradient(270deg, #FFD700, #FFA500, #FF8C00, #FFA500, #FFD700)',
-                'linear-gradient(360deg, #FFD700, #FFA500, #FF8C00, #FFA500, #FFD700)',
-              ]
-            }}
-            transition={{ 
-              duration: 6,
-              repeat: Infinity,
-              repeatType: "loop"
-            }}
-          >
-            <Typography
-              variant="body2"
-              sx={{
-                mx: 'auto',
-                px: 3,
-                py: 1.5,
-                fontWeight: 'bold',
-                borderRadius: 1.5,
-                display: 'block',
-                backgroundColor: (theme) => theme.palette.background.paper,
-                color: (theme) => theme.palette.warning.darker,
-                [theme.breakpoints.up(smKey)]: { whiteSpace: 'pre' },
-                [theme.breakpoints.up(lgKey)]: { fontSize: 20, lineHeight: '36px' },
-              }}
-            >
-              Power your projects with the industry's most trusted freelance VLSI talent.
-            </Typography>
-          </m.div>
-        </m.div>
+    
       </Stack>
     </m.div>
   );
@@ -217,16 +198,56 @@ export function HomeHero({ sx, ...other }) {
           justifyContent: 'center',
         }}
       >
-        <AvatarGroup sx={{ [`& .${avatarClasses.root}`]: { width: 32, height: 32 } }}>
-          {Array.from({ length: 3 }, (_, index) => (
-            <Avatar
-              key={_mock.fullName(index + 1)}
-              alt={_mock.fullName(index + 1)}
-              src={_mock.image.avatar(index + 1)}
-            />
-          ))}
-        </AvatarGroup>
-         Professionals Freelancers Team
+        <m.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.05 }}
+        >
+          <AvatarGroup sx={{ [`& .${avatarClasses.root}`]: { width: 32, height: 32 } }}>
+            {Array.from({ length: 3 }, (_, index) => (
+              <m.div
+                key={index}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
+              >
+                <Avatar
+                  key={_mock.fullName(index + 1)}
+                  alt={_mock.fullName(index + 1)}
+                  src={_mock.image.avatar(index + 1)}
+                />
+              </m.div>
+            ))}
+          </AvatarGroup>
+        </m.div>
+        <m.span
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          sx={{
+            position: 'relative',
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              bottom: -2,
+              left: 0,
+              width: '100%',
+              height: '5px',
+              background: (theme) => `linear-gradient(90deg, ${theme.palette.primary.main}, ${theme.palette.warning.main})`,
+              borderRadius: '2px',
+              opacity: 0.3,
+              animation: 'highlightPulse 2s infinite',
+            },
+            '@keyframes highlightPulse': {
+              '0%': { opacity: 0.3 },
+              '50%': { opacity: 0.7 },
+              '100%': { opacity: 0.3 },
+            }
+          }}
+        >
+          Power your projects with the industry's most trusted freelance VLSI talent.
+        </m.span>
       </Box>
     </m.div>
   );
@@ -242,32 +263,126 @@ export function HomeHero({ sx, ...other }) {
     >
       <m.div {...motionProps}>
         <Stack spacing={2.5} sx={{ alignItems: 'center' }}>
-          <Button
-            component={RouterLink}
-            href={paths.forProgrammers}
-            color="inherit"
-            size="large"
-            variant="contained"
-            startIcon={<Iconify width={24} icon="iconoir:flash" />}
+          <m.div
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: '0 0 15px rgba(81, 145, 240, 0.6)',
+            }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ boxShadow: '0 0 0px rgba(81, 145, 240, 0)' }}
+            transition={{ type: 'spring', stiffness: 400, damping: 10 }}
           >
-            <span>
-              Join as a Programmer
-            </span>
-          </Button>
+            <Button
+              component={RouterLink}
+              href={paths.forProgrammers}
+              color="inherit"
+              size="large"
+              variant="contained"
+              startIcon={
+                <m.div
+                  animate={{ rotate: [0, 15, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Iconify width={24} icon="iconoir:flash" />
+                </m.div>
+              }
+              sx={{
+                position: 'relative',
+                overflow: 'hidden',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  background: (theme) => `linear-gradient(90deg, transparent, ${theme.palette.primary.light}, transparent)`,
+                  transform: 'translateX(-100%)',
+                  animation: 'shimmer 3s infinite',
+                },
+                '@keyframes shimmer': {
+                  '0%': { transform: 'translateX(-100%)' },
+                  '50%': { transform: 'translateX(100%)' },
+                  '100%': { transform: 'translateX(100%)' },
+                }
+              }}
+            >
+              <m.span
+                initial={{ y: 0 }}
+                whileHover={{ y: -5 }}
+                animate={{ y: [0, -2, 0] }}
+                transition={{ 
+                  y: { duration: 0.5, repeat: Infinity, repeatType: 'reverse' },
+                  default: { duration: 0.2 }
+                }}
+              >
+                Join as a Programmer
+              </m.span>
+            </Button>
+          </m.div>
         </Stack>
       </m.div>
 
       <m.div {...motionProps}>
-        <Button
-          color="inherit"
-          size="large"
-          variant="outlined"
-          startIcon={<Iconify width={24} icon="carbon:launch" />}
-          component={RouterLink}
-          href={paths.forCompanies}
+        <m.div
+          whileHover={{ 
+            scale: 1.05,
+            boxShadow: '0 0 10px rgba(255, 155, 0, 0.4)'
+          }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 10 }}
         >
-          Join as a Company
-        </Button>
+          <Button
+            color="inherit"
+            size="large"
+            variant="outlined"
+            startIcon={
+              <m.div
+                animate={{ 
+                  scale: [1, 1.2, 1],
+                  rotate: [0, 10, 0]
+                }}
+                transition={{ 
+                  duration: 2.5, 
+                  repeat: Infinity,
+                  repeatType: 'reverse'
+                }}
+              >
+                <Iconify width={24} icon="carbon:launch" />
+              </m.div>
+            }
+            component={RouterLink}
+            href={paths.forCompanies}
+            sx={{
+              position: 'relative',
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                borderRadius: 'inherit',
+                border: (theme) => `2px solid ${theme.palette.warning.main}`,
+                opacity: 0.5,
+                animation: 'pulseBorder 2s infinite',
+              },
+              '@keyframes pulseBorder': {
+                '0%': { transform: 'scale(1)', opacity: 0.5 },
+                '50%': { transform: 'scale(1.05)', opacity: 0.2 },
+                '100%': { transform: 'scale(1)', opacity: 0.5 },
+              }
+            }}
+          >
+            <m.span
+              initial={{ y: 0 }}
+              whileHover={{ y: -3 }}
+              transition={{ duration: 0.2 }}
+            >
+              Join as a Company
+            </m.span>
+          </Button>
+        </m.div>
       </m.div>
     </Box>
   );
